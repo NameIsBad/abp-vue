@@ -1,0 +1,89 @@
+<template>
+  <BasicModal
+    v-bind="$attrs"
+    @register="registerModal"
+    :title="t('identity.claim.manageClaim')"
+    :width="800"
+    :showCancelBtn="false"
+    :showOkBtn="false"
+  >
+    <BasicTable @register="registerTable">
+      <template #toolbar>
+        <a-button type="primary" @click="handleAddNew">{{ t('identity.claim.addClaim') }}</a-button>
+      </template>
+      <template #action="{ record }">
+        <TableAction
+          :actions="[
+            {
+              auth: 'AbpIdentity.Users.ManageClaims',
+              label: t('common.edit'),
+              icon: 'ant-design:edit-outlined',
+              onClick: handleEdit.bind(null, record),
+            },
+            {
+              auth: 'AbpIdentity.Users.ManageClaims',
+              color: 'error',
+              label: t('common.delete'),
+              icon: 'ant-design:delete-outlined',
+              onClick: handleDelete.bind(null, record),
+            },
+          ]"
+        />
+      </template>
+    </BasicTable>
+    <BasicModalForm
+      @register="registerClaimForm"
+      :save-changes="handleSaveChanges"
+      :form-items="formSchemas"
+      :title="t('identity.user.manageClaim')"
+    />
+  </BasicModal>
+</template>
+
+<script lang="ts">
+  import { defineComponent, ref } from 'vue';
+  import { useI18n } from '/@/hooks/web/useI18n';
+  import { BasicModal, useModalInner } from '/@/components/Modal';
+  import { BasicTable, TableAction } from '/@/components/Table';
+  import { BasicModalForm } from '/@/components/ModalForm';
+  import { useClaim } from '../hooks/useClaim';
+
+  export default defineComponent({
+    name: 'RoleClaimModal',
+    components: { BasicModal, BasicTable, BasicModalForm, TableAction },
+    setup() {
+      const { t } = useI18n();
+      const roleIdRef = ref('');
+      const [registerModal] = useModalInner((val) => {
+        roleIdRef.value = val.id;
+      });
+      const {
+        formSchemas,
+        registerClaimForm,
+        openClaimForm,
+        registerTable,
+        handleDelete,
+        handleSaveChanges,
+      } = useClaim({ roleIdRef });
+
+      return {
+        t,
+        formSchemas,
+        registerModal,
+        registerTable,
+        registerClaimForm,
+        openClaimForm,
+        handleDelete,
+        handleSaveChanges,
+      };
+    },
+    methods: {
+      handleAddNew() {
+        this.openClaimForm({});
+      },
+      handleEdit(record) {
+        this.openClaimForm(record);
+      },
+    },
+  });
+</script>

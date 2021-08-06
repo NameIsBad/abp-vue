@@ -1,0 +1,40 @@
+export default {
+  claim: {
+    manageClaim: '管理声明',
+    addClaim: '添加声明',
+    claim: '声明',
+    claimType: '声明类型',
+    claimValue: '声明值',
+  },
+  user: {
+    users: '用户',
+    lockout: '锁定',
+    unLock: '解锁',
+    setPassword: '设置密码',
+    newUser: '添加用户',
+    permissions: '权限',
+    userInformations: '用户信息',
+    firstName: '姓',
+    lastName: '名',
+    lockoutEnabled: '锁定',
+    roles: '角色',
+    lockTime: '锁定时间',
+    lockType: '锁定类型',
+  },
+  role: {
+    roles: '角色',
+    permissions: '权限',
+    newRole: '添加角色',
+    roleName: '角色名称',
+    isPublic: '公开',
+    isDefault: '默认',
+  },
+  tenant: {
+    switchTenantHint: '租户',
+    switchTenant: '切换租户',
+    givenTenantIsNotAvailable: '给定租户不可用',
+  },
+  permission: {
+    permissions: '权限',
+  },
+};
