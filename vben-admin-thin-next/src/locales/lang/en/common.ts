@@ -17,6 +17,7 @@ export default {
 
   light: 'Light',
   dark: 'Dark',
+
   edit: 'Edit',
   delete: 'Delete',
   search: 'Search',

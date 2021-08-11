@@ -6,7 +6,7 @@
           v-if="hasPermission('AbpIdentity.IdentityClaimTypes.Create')"
           type="primary"
           @click="handleAddNew"
-          >{{ t('identity.claim.new') }}</a-button
+          >{{ t('identity.claim.addClaim') }}</a-button
         >
       </template>
       <template #types="{ record }">

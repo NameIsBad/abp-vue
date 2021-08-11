@@ -31,7 +31,7 @@ export function getModalFormSchemas(): FormSchema[] {
     {
       field: 'name',
       component: 'Input',
-      label: t('AbpIdentity.IdentityClaim:Name'),
+      label: t('identity.claim.claim'),
       colProps: { span: 24 },
       required: true,
       dynamicDisabled: ({ values }) => {
@@ -41,32 +41,32 @@ export function getModalFormSchemas(): FormSchema[] {
     {
       field: 'required',
       component: 'Checkbox',
-      label: t('AbpIdentity.IdentityClaim:Required'),
+      label: t('identity.claim.required'),
       colProps: { span: 24 },
-      renderComponentContent: t('AbpIdentity.IdentityClaim:Required'),
+      renderComponentContent: t('identity.claim.required'),
     },
     {
       field: 'regex',
       component: 'Input',
-      label: t('AbpIdentity.IdentityClaim:Regex'),
+      label: t('identity.claim.regex'),
       colProps: { span: 24 },
     },
     {
       field: 'regexDescription',
       component: 'Input',
-      label: t('AbpIdentity.IdentityClaim:RegexDescription'),
+      label: t('identity.claim.regexDescription'),
       colProps: { span: 24 },
     },
     {
       field: 'description',
       component: 'InputTextArea',
-      label: t('AbpIdentity.IdentityClaim:Description'),
+      label: t('identity.claim.description'),
       colProps: { span: 24 },
     },
     {
       field: 'valueType',
       component: 'Select',
-      label: t('AbpIdentity.IdentityClaim:ValueType'),
+      label: t('identity.claim.valueType'),
       colProps: { span: 24 },
       defaultValue: ValueType.String,
       componentProps: {

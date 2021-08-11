@@ -2,9 +2,16 @@ export default {
   claim: {
     manageClaim: '管理声明',
     addClaim: '添加声明',
+    editClaim: '编辑声明',
     claim: '声明',
     claimType: '声明类型',
     claimValue: '声明值',
+    required: '是否必须',
+    regex: '正则',
+    regexDescription: '正则描述',
+    description: '描述',
+    valueType: '值类型',
+    isStatic: '是否静态',
   },
   user: {
     users: '用户',
