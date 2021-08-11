@@ -12,14 +12,14 @@ export function getDataColumns(): BasicColumn[] {
       ifShow: false,
     },
     {
-      title: t('identity.claim.claim'),
+      title: t('AbpIdentity.IdentityClaim:Name'),
       dataIndex: 'name',
       align: 'left',
       width: 220,
       sorter: true,
     },
     {
-      title: t('identity.claim.valueType'),
+      title: t('AbpIdentity.IdentityClaim:ValueType'),
       dataIndex: 'valueType',
       align: 'left',
       width: 150,
@@ -29,14 +29,14 @@ export function getDataColumns(): BasicColumn[] {
       },
     },
     {
-      title: t('identity.claim.regex'),
+      title: t('AbpIdentity.IdentityClaim:Regex'),
       dataIndex: 'regex',
       align: 'left',
       width: 180,
       sorter: true,
     },
     {
-      title: t('identity.claim.required'),
+      title: t('AbpIdentity.IdentityClaim:Required'),
       dataIndex: 'required',
       align: 'left',
       width: 150,
@@ -46,7 +46,7 @@ export function getDataColumns(): BasicColumn[] {
       },
     },
     {
-      title: t('identity.claim.isStatic'),
+      title: t('AbpIdentity.IdentityClaim:IsStatic'),
       dataIndex: 'isStatic',
       align: 'left',
       width: 150,
@@ -56,7 +56,7 @@ export function getDataColumns(): BasicColumn[] {
       },
     },
     {
-      title: t('identity.claim.description'),
+      title: t('AbpIdentity.IdentityClaim:Description'),
       dataIndex: 'description',
       align: 'left',
       width: 'auto',

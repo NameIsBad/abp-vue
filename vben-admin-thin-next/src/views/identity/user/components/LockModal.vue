@@ -3,7 +3,7 @@
     @register="registerModal"
     :save-changes="handleSaveChanges"
     :form-items="formSchemas"
-    :title="t('identity.user.lockout')"
+    :title="t('AbpIdentity.Lockout')"
   />
 </template>
 

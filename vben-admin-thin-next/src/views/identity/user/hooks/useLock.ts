@@ -24,14 +24,14 @@ export function useLock({ emit }: UseLock) {
     {
       field: 'seconds',
       component: 'Input',
-      label: t('identity.user.lockTime'),
+      label: t('AbpIdentity.LockTime'),
       colProps: { span: 24 },
       required: true,
     },
     {
       field: 'type',
       component: 'Select',
-      label: t('identity.user.lockType'),
+      label: t('AbpIdentity.LockType'),
       colProps: { span: 24 },
       required: true,
       defaultValue: LockType.Seconds,

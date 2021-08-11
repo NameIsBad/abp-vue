@@ -11,7 +11,7 @@ export function useUserTable() {
   const { t } = useI18n();
   const [registerTable, { reload: reloadTable }] = useTable({
     rowKey: 'id',
-    title: t('identity.user.users'),
+    title: t('AbpIdentity.Users'),
     columns: getDataColumns(),
     api: getList,
     beforeFetch: formatPagedRequest,
@@ -27,7 +27,7 @@ export function useUserTable() {
     formConfig: getSearchFormSchemas(),
     actionColumn: {
       width: 220,
-      title: t('common.action'),
+      title: t('table.action'),
       dataIndex: 'action',
       slots: { customRender: 'action' },
     },
@@ -35,7 +35,6 @@ export function useUserTable() {
 
   const lockEnable = computed(() => {
     return (record) => {
-      return false;
       // 未启用锁定不显示
       if (!record.lockoutEnabled) {
         return false;
@@ -54,8 +53,8 @@ export function useUserTable() {
 
   function handleDelete(user) {
     Modal.warning({
-      title: t('common.areYouSure'),
-      content: t('common.itemWillBeDeletedMessageWithFormat', [user.userName] as Recordable),
+      title: t('AbpUi.AreYouSure'),
+      content: t('AbpUi.ItemWillBeDeletedMessageWithFormat', [user.userName] as Recordable),
       okCancel: true,
       onOk: () => {
         deleteById(user.id).then(() => {

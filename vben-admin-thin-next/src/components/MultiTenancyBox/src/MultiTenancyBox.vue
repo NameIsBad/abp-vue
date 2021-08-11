@@ -1,14 +1,14 @@
 <template>
   <InputSearch
     readonly
-    :placeholder="t('identity.tenant.switchTenantHint')"
+    :placeholder="t('AbpUiMultiTenancy.SwitchTenantHint')"
     size="large"
     autoComplete="off"
     @search="openModal()"
     v-model:value="tenantName"
   >
     <template #enterButton>
-      <Button> ({{ t('common.switch') }}) </Button>
+      <Button> ({{ t('AbpUiMultiTenancy.Switch') }}) </Button>
     </template>
   </InputSearch>
   <BasicModal
@@ -16,7 +16,7 @@
     :minHeight="30"
     :canFullscreen="false"
     @register="register"
-    :title="t('identity.tenant.switchTenant')"
+    :title="t('AbpUiMultiTenancy.SwitchTenant')"
     @ok="switchTenant"
   >
     <BasicForm
@@ -60,7 +60,7 @@
         {
           field: 'tenantName',
           component: 'Input',
-          label: t('identity.tenant.switchTenantHint'),
+          label: t('AbpUiMultiTenancy.SwitchTenantHint'),
           colProps: {
             span: 24,
           },
@@ -92,7 +92,7 @@
             Persistent.setTenant(result.tenantId);
           } else {
             this.createMessage.warn(
-              this.t('identity.tenant.givenTenantIsNotAvailable', [field.tenantName])
+              this.t('AbpUiMultiTenancy.GivenTenantIsNotAvailable', [field.tenantName])
             );
           }
         } else {

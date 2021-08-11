@@ -33,7 +33,6 @@ export class TenantConnectionString {
 }
 
 export class FindTenantResult {
-  isActive = true;
   name = '';
   tenantId = '';
   success = '';

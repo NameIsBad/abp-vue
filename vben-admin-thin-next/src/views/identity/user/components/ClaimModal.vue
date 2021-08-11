@@ -2,28 +2,28 @@
   <BasicModal
     v-bind="$attrs"
     @register="registerModal"
-    :title="t('identity.claim.manageClaim')"
+    :title="t('AbpIdentity.ManageClaim')"
     :width="800"
     :showCancelBtn="false"
     :showOkBtn="false"
   >
     <BasicTable @register="registerTable">
       <template #toolbar>
-        <a-button type="primary" @click="handleAddNew">{{ t('identity.user.addClaim') }}</a-button>
+        <a-button type="primary" @click="handleAddNew">{{ t('AbpIdentity.AddClaim') }}</a-button>
       </template>
       <template #action="{ record }">
         <TableAction
           :actions="[
             {
               auth: 'AbpIdentity.Users.ManageClaims',
-              label: t('common.edit'),
+              label: t('AbpUi.Edit'),
               icon: 'ant-design:edit-outlined',
               onClick: handleEdit.bind(null, record),
             },
             {
               auth: 'AbpIdentity.Users.ManageClaims',
               color: 'error',
-              label: t('common.delete'),
+              label: t('AbpUi.Delete'),
               icon: 'ant-design:delete-outlined',
               onClick: handleDelete.bind(null, record),
             },
@@ -35,7 +35,7 @@
       @register="registerClaimForm"
       :save-changes="handleSaveChanges"
       :form-items="formSchemas"
-      :title="t('identity.claim.manageClaim')"
+      :title="t('AbpIdentity.ManageClaim')"
     />
   </BasicModal>
 </template>

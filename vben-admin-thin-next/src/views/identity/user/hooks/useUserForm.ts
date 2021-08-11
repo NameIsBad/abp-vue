@@ -17,9 +17,9 @@ export function useUserForm({ userRef, formElRef }: UseUserFormContext) {
 
   const userTitle = computed(() => {
     if (unref(userRef)?.id) {
-      return t('common.edit');
+      return t('AbpIdentity.Edit');
     }
-    return t('identity.user.newUser');
+    return t('AbpIdentity.NewUser');
   });
 
   const userSchemas = computed(() => {

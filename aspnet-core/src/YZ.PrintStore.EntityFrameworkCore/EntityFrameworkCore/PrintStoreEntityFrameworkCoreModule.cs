@@ -4,6 +4,7 @@ using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.MySQL;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
+using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
@@ -32,6 +33,13 @@ namespace YZ.PrintStore.EntityFrameworkCore
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+
+            context.Services.AddAbpDbContext<IdentityDbContext>(options =>
+            {
+                options.AddRepository<IdentityRole, EfCoreIdentityRoleRepository>();
+                options.AddRepository<IdentityUser, EfCoreIdentityUserRepository>();
+            });
+
             context.Services.AddAbpDbContext<PrintStoreDbContext>(options =>
             {
                 /* Remove "includeAllEntities: true" to create

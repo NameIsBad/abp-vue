@@ -15,7 +15,7 @@ interface UseClaimModal {
 export function useClaimModal({ claimRef, formElRef }: UseClaimModal) {
   const { t } = useI18n();
   const formTitle = computed(() => {
-    return unref(claimRef)?.id ? t('identity.claim.editClaim') : t('identity.claim.addClaim');
+    return unref(claimRef)?.id ? t('AbpIdentity.Edit') : t('AbpIdentity.IdentityClaim:New');
   });
   const formSchemas = computed(() => {
     return [...getModalFormSchemas()];

@@ -10,7 +10,7 @@ export function useRoleTable() {
   const { t } = useI18n();
   const [registerTable, { reload: reloadTable }] = useTable({
     rowKey: 'id',
-    title: t('identity.role.roles'),
+    title: t('AbpIdentity.Roles'),
     columns: getDataColumns(),
     api: getList,
     beforeFetch: formatPagedRequest,
@@ -26,7 +26,7 @@ export function useRoleTable() {
     formConfig: getSearchFormSchemas(),
     actionColumn: {
       width: 220,
-      title: t('common.action'),
+      title: t('table.action'),
       dataIndex: 'action',
       slots: { customRender: 'action' },
     },
@@ -34,8 +34,8 @@ export function useRoleTable() {
 
   function handleDelete(role) {
     Modal.warning({
-      title: t('common.areYouSure'),
-      content: t('common.itemWillBeDeletedMessageWithFormat', [role.name] as Recordable),
+      title: t('AbpUi.AreYouSure'),
+      content: t('AbpUi.ItemWillBeDeletedMessageWithFormat', [role.name] as Recordable),
       okCancel: true,
       onOk: () => {
         deleteById(role.id).then(() => {

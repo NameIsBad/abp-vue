@@ -12,7 +12,7 @@ export function getDataColumns(): BasicColumn[] {
       ifShow: false,
     },
     {
-      title: t('identity.role.roleName'),
+      title: t('AbpIdentity.DisplayName:RoleName'),
       dataIndex: 'name',
       align: 'left',
       width: 'auto',
@@ -30,14 +30,14 @@ export function getClaimColumns(): BasicColumn[] {
       ifShow: false,
     },
     {
-      title: t('identity.claim.claimType'),
+      title: t('AbpIdentity.DisplayName:ClaimType'),
       dataIndex: 'claimType',
       align: 'left',
       width: 150,
       sortOrder: true,
     },
     {
-      title: t('identity.claim.claimValue'),
+      title: t('AbpIdentity.DisplayName:ClaimValue'),
       dataIndex: 'claimValue',
       align: 'left',
       width: 'auto',

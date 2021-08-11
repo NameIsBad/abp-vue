@@ -17,16 +17,4 @@ export default {
 
   light: '亮色主题',
   dark: '黑暗主题',
-
-  edit: '修改',
-  delete: '删除',
-  search: '搜索',
-  userName: '用户名',
-  password: '密码',
-  email: '邮箱',
-  phoneNumber: '手机号',
-  areYouSure: '你确定吗?',
-  itemWillBeDeletedMessageWithFormat: '{0} 将被删除!',
-  action: '操作',
-  switch: '切换',
 };

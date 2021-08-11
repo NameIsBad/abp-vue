@@ -27,7 +27,7 @@ export function useClaim({ roleIdRef }: UseClaim) {
     {
       field: 'claimType',
       component: 'ApiSelect',
-      label: t('identity.claim.claimType'),
+      label: t('AbpIdentity.DisplayName:ClaimType'),
       colProps: { span: 24 },
       required: true,
       componentProps: {
@@ -40,7 +40,7 @@ export function useClaim({ roleIdRef }: UseClaim) {
     {
       field: 'claimValue',
       component: 'Input',
-      label: t('identity.claim.claimValue'),
+      label: t('AbpIdentity.DisplayName:ClaimValue'),
       colProps: { span: 24 },
       required: true,
       ifShow: ({ values }) => {
@@ -50,7 +50,7 @@ export function useClaim({ roleIdRef }: UseClaim) {
     {
       field: 'newClaimValue',
       component: 'Input',
-      label: t('identity.claim.claimValue'),
+      label: t('AbpIdentity.DisplayName:ClaimValue'),
       colProps: { span: 24 },
       required: true,
       ifShow: ({ values }) => {
@@ -65,7 +65,7 @@ export function useClaim({ roleIdRef }: UseClaim) {
   });
   const [registerTable, { reload: reloadTable }] = useTable({
     rowKey: 'id',
-    title: t('identity.claim.manageClaim'),
+    title: t('AbpIdentity.ManageClaim'),
     columns: getClaimColumns(),
     api: getClaimList,
     searchInfo: search,
@@ -80,7 +80,7 @@ export function useClaim({ roleIdRef }: UseClaim) {
     rowSelection: { type: 'checkbox' },
     actionColumn: {
       width: 160,
-      title: t('common.action'),
+      title: t('table.action'),
       dataIndex: 'action',
       slots: { customRender: 'action' },
     },
@@ -104,8 +104,8 @@ export function useClaim({ roleIdRef }: UseClaim) {
 
   function handleDelete(claim) {
     Modal.warning({
-      title: t('common.areYouSure'),
-      content: t('common.itemWillBeDeletedMessageWithFormat', [claim.claimValue] as Recordable),
+      title: t('AbpUi.AreYouSure'),
+      content: t('AbpUi.ItemWillBeDeletedMessageWithFormat', [claim.claimValue] as Recordable),
       okCancel: true,
       onOk: () => {
         deleteClaim(unref(roleIdRef), claim).then(() => {

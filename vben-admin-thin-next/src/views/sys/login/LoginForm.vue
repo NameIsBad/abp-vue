@@ -128,7 +128,7 @@
     },
     setup() {
       const { t } = useI18n();
-      const { notification, createErrorModal } = useMessage();
+      const { notification } = useMessage();
       const { prefixCls } = useDesign('login');
       const userStore = useUserStore();
 

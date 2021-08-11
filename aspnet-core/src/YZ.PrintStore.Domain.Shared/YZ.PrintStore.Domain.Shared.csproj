@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>YZ.PrintStore</RootNamespace>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
   </PropertyGroup>
@@ -21,6 +21,16 @@
   <ItemGroup>
     <EmbeddedResource Include="Localization\PrintStore\*.json" />
     <Content Remove="Localization\PrintStore\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Localization\Identity\en.json" />
+    <None Remove="Localization\Identity\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Identity\en.json" />
+    <EmbeddedResource Include="Localization\Identity\zh-Hans.json" />
   </ItemGroup>
 
   <ItemGroup>

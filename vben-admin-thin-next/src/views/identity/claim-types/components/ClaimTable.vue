@@ -6,7 +6,7 @@
           v-if="hasPermission('AbpIdentity.IdentityClaimTypes.Create')"
           type="primary"
           @click="handleAddNew"
-          >{{ t('identity.claim.addClaim') }}</a-button
+          >{{ t('AbpIdentity.IdentityClaim:New') }}</a-button
         >
       </template>
       <template #types="{ record }">
@@ -24,7 +24,7 @@
           :actions="[
             {
               auth: 'AbpIdentity.IdentityClaimTypes.Update',
-              label: t('common.edit'),
+              label: t('AbpUi.Edit'),
               icon: 'ant-design:edit-outlined',
               ifShow: !record.isStatic,
               onClick: handleEdit.bind(null, record),
@@ -32,7 +32,7 @@
             {
               auth: 'AbpIdentity.IdentityClaimTypes.Delete',
               color: 'error',
-              label: t('common.delete'),
+              label: t('AbpUi.Delete'),
               icon: 'ant-design:delete-outlined',
               ifShow: !record.isStatic,
               onClick: handleDelete.bind(null, record),

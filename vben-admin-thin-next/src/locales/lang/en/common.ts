@@ -17,16 +17,4 @@ export default {
 
   light: 'Light',
   dark: 'Dark',
-
-  edit: 'Edit',
-  delete: 'Delete',
-  search: 'Search',
-  userName: 'UserName',
-  password: 'password',
-  email: 'Email',
-  phoneNumber: 'PhoneNumber',
-  areYouSure: 'Are you sure?',
-  itemWillBeDeletedMessageWithFormat: '{0} will be deleted!',
-  action: 'Action',
-  switch: 'Switch',
 };

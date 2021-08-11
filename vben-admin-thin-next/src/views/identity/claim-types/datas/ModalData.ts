@@ -11,7 +11,7 @@ export function getSearchFormSchemas(): Partial<FormProps> {
       {
         field: 'filter',
         component: 'Input',
-        label: t('common.search'),
+        label: t('AbpIdentity.Search'),
         colProps: { span: 24 },
         defaultValue: '',
       },
@@ -31,7 +31,7 @@ export function getModalFormSchemas(): FormSchema[] {
     {
       field: 'name',
       component: 'Input',
-      label: t('identity.claim.claim'),
+      label: t('AbpIdentity.IdentityClaim:Name'),
       colProps: { span: 24 },
       required: true,
       dynamicDisabled: ({ values }) => {
@@ -41,32 +41,32 @@ export function getModalFormSchemas(): FormSchema[] {
     {
       field: 'required',
       component: 'Checkbox',
-      label: t('identity.claim.required'),
+      label: t('AbpIdentity.IdentityClaim:Required'),
       colProps: { span: 24 },
-      renderComponentContent: t('identity.claim.required'),
+      renderComponentContent: t('AbpIdentity.IdentityClaim:Required'),
     },
     {
       field: 'regex',
       component: 'Input',
-      label: t('identity.claim.regex'),
+      label: t('AbpIdentity.IdentityClaim:Regex'),
       colProps: { span: 24 },
     },
     {
       field: 'regexDescription',
       component: 'Input',
-      label: t('identity.claim.regexDescription'),
+      label: t('AbpIdentity.IdentityClaim:RegexDescription'),
       colProps: { span: 24 },
     },
     {
       field: 'description',
       component: 'InputTextArea',
-      label: t('identity.claim.description'),
+      label: t('AbpIdentity.IdentityClaim:Description'),
       colProps: { span: 24 },
     },
     {
       field: 'valueType',
       component: 'Select',
-      label: t('identity.claim.valueType'),
+      label: t('AbpIdentity.IdentityClaim:ValueType'),
       colProps: { span: 24 },
       defaultValue: ValueType.String,
       componentProps: {

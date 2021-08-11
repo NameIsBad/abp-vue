@@ -11,7 +11,7 @@
       ref="formElRef"
       :colon="true"
       :schemas="userSchemas"
-      :label-width="80"
+      :label-width="180"
       :show-action-button-group="false"
       :action-col-options="{
         span: 24,

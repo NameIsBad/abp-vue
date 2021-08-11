@@ -6,6 +6,7 @@ using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Emailing;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
+using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement.Identity;
@@ -35,7 +36,7 @@ namespace YZ.PrintStore
       });
 
 #if DEBUG
-      context.Services.Replace(ServiceDescriptor.Singleton<IEmailSender, NullEmailSender>());
+            context.Services.Replace(ServiceDescriptor.Singleton<IEmailSender, NullEmailSender>());
 #endif
     }
   }

@@ -13,7 +13,7 @@
           :checked="permissionTreeCheckState.checked"
           :indeterminate="permissionTreeCheckState.indeterminate"
           @change="handleGrantAllPermission"
-          >{{ t('component.tree.selectAll') }}</Checkbox
+          >{{ t('AbpPermissionManagement.SelectAllInAllTabs') }}</Checkbox
         >
       </Col>
       <Divider />
@@ -29,7 +29,7 @@
                 :checked="permissionTabCheckState(permission).checked"
                 :indeterminate="permissionTabCheckState(permission).indeterminate"
                 @change="(e) => handleGrantPermissions(permission, e)"
-                >{{ t('component.tree.selectAll') }}</Checkbox
+                >{{ t('AbpPermissionManagement.SelectAllInThisTab') }}</Checkbox
               >
               <Divider />
               <BasicTree

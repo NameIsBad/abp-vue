@@ -6,7 +6,7 @@
           v-if="hasPermission('AbpIdentity.Users.Create')"
           type="primary"
           @click="handleAddNew"
-          >{{ t('identity.user.newUser') }}</a-button
+          >{{ t('AbpIdentity.NewUser') }}</a-button
         >
       </template>
       <template #phoneNumberConfirmed="{ record }">
@@ -30,14 +30,14 @@
           :actions="[
             {
               auth: 'AbpIdentity.Users.Update',
-              label: t('common.edit'),
+              label: t('AbpUi.Edit'),
               icon: 'ant-design:edit-outlined',
               onClick: handleEdit.bind(null, record),
             },
             {
               auth: 'AbpIdentity.Users.Delete',
               color: 'error',
-              label: t('common.delete'),
+              label: t('AbpUi.Delete'),
               icon: 'ant-design:delete-outlined',
               onClick: handleDelete.bind(null, record),
             },
@@ -45,29 +45,29 @@
           :dropDownActions="[
             {
               auth: 'AbpIdentity.Users.Update',
-              label: t('identity.user.lockout'),
+              label: t('AbpIdentity.Lockout'),
               ifShow: lockEnable(record),
               onClick: showLockModal.bind(null, record.id),
             },
             {
               auth: 'AbpIdentity.Users.Update',
-              label: t('identity.user.unLock'),
+              label: t('AbpIdentity.UnLock'),
               ifShow: record.lockoutEnabled && !lockEnable(record),
               onClick: handleUnlock.bind(null, record),
             },
             {
               auth: 'AbpIdentity.Users.ManagePermissions',
-              label: t('identity.user.permissions'),
+              label: t('AbpIdentity.Permissions'),
               onClick: showPermissionModal.bind(null, record.id),
             },
             {
               auth: 'AbpIdentity.Users.ManageClaims',
-              label: t('identity.claim.claim'),
+              label: t('AbpIdentity.Claim'),
               onClick: openClaimModal.bind(null, true, record, true),
             },
             {
               auth: 'AbpIdentity.Users.Update',
-              label: t('identity.user.setPassword'),
+              label: t('AbpIdentity.ChangePassword'),
               onClick: showPasswordModal.bind(null, record.id),
             },
           ]"

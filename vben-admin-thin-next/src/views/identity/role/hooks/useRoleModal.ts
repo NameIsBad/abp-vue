@@ -15,7 +15,7 @@ interface UseRoleFormContext {
 export function useRoleModal({ roleRef, formElRef }: UseRoleFormContext) {
   const { t } = useI18n();
   const formTitle = computed(() => {
-    return unref(roleRef)?.id ? t('common.edit') : t('identity.role.newRole');
+    return unref(roleRef)?.id ? t('AbpIdentity.Edit') : t('AbpIdentity.NewRole');
   });
   const formSchemas = computed(() => {
     return [...getModalFormSchemas()];

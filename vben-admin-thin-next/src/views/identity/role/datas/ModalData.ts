@@ -10,7 +10,7 @@ export function getSearchFormSchemas(): Partial<FormProps> {
       {
         field: 'filter',
         component: 'Input',
-        label: t('common.search'),
+        label: t('AbpIdentity.Search'),
         colProps: { span: 24 },
         defaultValue: '',
       },
@@ -37,23 +37,23 @@ export function getModalFormSchemas(): FormSchema[] {
     {
       field: 'name',
       component: 'Input',
-      label: t('identity.role.roleName'),
+      label: t('AbpIdentity.DisplayName:RoleName'),
       colProps: { span: 24 },
       required: true,
     },
     {
       field: 'isPublic',
       component: 'Checkbox',
-      label: t('identity.role.isPublic'),
+      label: t('AbpIdentity.DisplayName:IsPublic'),
       colProps: { span: 24 },
-      renderComponentContent: t('identity.role.isPublic'),
+      renderComponentContent: t('AbpIdentity.DisplayName:IsPublic'),
     },
     {
       field: 'isDefault',
       component: 'Checkbox',
-      label: t('identity.role.isDefault'),
+      label: t('AbpIdentity.DisplayName:IsDefault'),
       colProps: { span: 24 },
-      renderComponentContent: t('identity.role.isDefault'),
+      renderComponentContent: t('AbpIdentity.DisplayName:IsDefault'),
     },
   ];
 }

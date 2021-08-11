@@ -6,7 +6,7 @@
           v-if="hasPermission('AbpIdentity.Roles.Create')"
           type="primary"
           @click="handleAddNew"
-          >{{ t('identity.role.newRole') }}</a-button
+          >{{ t('AbpIdentity.NewRole') }}</a-button
         >
       </template>
       <template #action="{ record }">
@@ -15,14 +15,14 @@
           :actions="[
             {
               auth: 'AbpIdentity.Roles.Update',
-              label: t('common.edit'),
+              label: t('AbpUi.Edit'),
               icon: 'ant-design:edit-outlined',
               onClick: handleEdit.bind(null, record),
             },
             {
               auth: 'AbpIdentity.Roles.Delete',
               color: 'error',
-              label: t('common.delete'),
+              label: t('AbpUi.Delete'),
               icon: 'ant-design:delete-outlined',
               ifShow: !record.isStatic,
               onClick: handleDelete.bind(null, record),
@@ -31,12 +31,12 @@
           :dropDownActions="[
             {
               auth: 'AbpIdentity.Roles.ManagePermissions',
-              label: t('identity.role.permissions'),
+              label: t('AbpIdentity.Permissions'),
               onClick: showPermissionModal.bind(null, record.name),
             },
             {
               auth: 'AbpIdentity.Users.ManageClaims',
-              label: t('identity.claim.claim'),
+              label: t('AbpIdentity.Claim'),
               onClick: openClaimModal.bind(null, true, record, true),
             },
           ]"

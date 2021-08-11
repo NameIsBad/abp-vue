@@ -2,7 +2,7 @@
   <BasicModal
     v-bind="$attrs"
     @register="registerModal"
-    :title="t('identity.user.setPassword')"
+    :title="t('AbpIdentity.SetPassword')"
     @ok="handleSubmit"
   >
     <BasicForm @register="registerForm" />

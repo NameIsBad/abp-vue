@@ -7,32 +7,52 @@ const system: AppRouteModule = {
   path: '/system',
   name: 'System',
   component: LAYOUT,
-  redirect: '/system/account',
+  redirect: '/system/organization-units',
   meta: {
     orderNo: 2000,
     icon: 'ion:settings-outline',
-    title: t('routes.demo.system.moduleName'),
+    title: t('routes.system.moduleName'),
   },
   children: [
+    {
+      path: 'organization-units',
+      name: 'organizationManagement',
+      meta: {
+        title: t('routes.system.organization'),
+        ignoreKeepAlive: false,
+        roles: ['AbpIdentity.Users'],
+      },
+      component: () => import('/@/views/identity/organization-units/index.vue'),
+    },
+    {
+      path: 'role',
+      name: 'RoleManagement',
+      meta: {
+        title: t('routes.system.role'),
+        ignoreKeepAlive: true,
+        roles: ['AbpIdentity.Roles'],
+      },
+      component: () => import('/@/views/identity/role/index.vue'),
+    },
     {
       path: 'account',
       name: 'AccountManagement',
       meta: {
-        title: t('routes.demo.system.account'),
+        title: t('routes.system.account'),
         ignoreKeepAlive: false,
         roles: ['AbpIdentity.Users'],
       },
       component: () => import('/@/views/identity/user/index.vue'),
     },
     {
-      path: 'role',
-      name: 'RoleManagement',
+      path: 'security-logs',
+      name: 'securityLogsManagement',
       meta: {
-        title: t('routes.demo.system.role'),
-        ignoreKeepAlive: true,
-        roles: ['AbpIdentity.Roles'],
+        title: t('routes.system.securityLogs'),
+        ignoreKeepAlive: false,
+        roles: ['AbpIdentity.Users'],
       },
-      component: () => import('/@/views/identity/role/index.vue'),
+      component: () => import('/@/views/identity/security-logs/index.vue'),
     },
   ],
 };

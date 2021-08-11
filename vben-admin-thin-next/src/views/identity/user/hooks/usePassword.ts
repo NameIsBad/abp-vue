@@ -15,7 +15,7 @@ export function usePassword() {
     {
       field: 'password',
       component: 'InputSearch',
-      label: t('common.password'),
+      label: t('AbpIdentity.Password'),
       colProps: { span: 24 },
       required: true,
       componentProps: ({ formModel }) => {

@@ -36,7 +36,7 @@ export function usePermissions({ getPropsRef }: UsePermission) {
    */
   function handleGetPermission(name: string, key?: string) {
     get({ providerName: name, providerKey: key }).then((res) => {
-      title.value = `${t('identity.permission.permissions')} - ${res.entityDisplayName}`;
+      title.value = `${t('AbpPermissionManagement.Permissions')} - ${res.entityDisplayName}`;
       permissionTree.value = generatePermissionTree(res.groups);
     });
   }
