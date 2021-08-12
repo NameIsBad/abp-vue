@@ -1,5 +1,7 @@
 <template>
-  <OrganizationUnitPage />
+  <div class="m-5">
+    <OrganizationUnitPage />
+  </div>
 </template>
 
 <script lang="ts">

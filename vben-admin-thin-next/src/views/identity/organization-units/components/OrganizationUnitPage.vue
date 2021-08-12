@@ -1,5 +1,5 @@
 <template>
-  <Row :gutter="16" style="margin-right: 12px; margin-left: 12px">
+  <Row :gutter="16">
     <Col :span="10">
       <Card title="组织结构树">
         <template #extra>

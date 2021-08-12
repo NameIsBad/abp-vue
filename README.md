@@ -1,8 +1,12 @@
 # abp-vue
 
+本项目参照[colinin](https://github.com/colinin/abp-vue-admin-element-typescript)
+
+本项目为单体应用并且移除了 _IdentityServer4_ 使用 _jwt_
+
 ## 后端
 
-[abp vnext](https://github.com/abpframework/abp) _移除 IdentityServer4 使用 jwt_
+[abp vnext](https://github.com/abpframework/abp)
 
 运行
 
