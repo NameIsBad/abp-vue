@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>YZ.PrintStore.AdministrationService</RootNamespace>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="4.4.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="4.4.0" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="4.4.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\AdministrationService\*.json" />
+    <Content Remove="Localization\AdministrationService\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Localization\Auditing\en.json" />
+    <None Remove="Localization\Auditing\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Auditing\en.json" />
+    <EmbeddedResource Include="Localization\Auditing\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\YZ.PrintStore.Shared\YZ.PrintStore.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

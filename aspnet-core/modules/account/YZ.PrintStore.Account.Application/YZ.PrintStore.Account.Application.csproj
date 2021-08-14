@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>YZ.PrintStore.Account</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.Application" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\identity\YZ.PrintStore.Identity.Domain\YZ.PrintStore.Identity.Domain.csproj" />
+    <ProjectReference Include="..\YZ.PrintStore.Account.Application.Contracts\YZ.PrintStore.Account.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

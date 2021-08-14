@@ -5,7 +5,7 @@ import { ErrorMessageMode } from '/@/utils/http/axios/types';
 import { ContentTypeEnum } from '/@/enums/httpEnum';
 
 enum Api {
-  Login = '/login',
+  Login = '/api/login',
   GetUserInfo = '/connect/userinfo',
   GetPermCode = '/getPermCode',
 }
