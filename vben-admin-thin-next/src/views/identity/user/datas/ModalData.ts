@@ -91,10 +91,10 @@ export function getModalFormSchemas(): TabFormSchema[] {
       tab: t('AbpIdentity.UserInformations'),
       field: 'lockoutEnabled',
       component: 'Checkbox',
-      label: t('AbpIdentity.LockoutEnabled'),
+      label: t('AbpIdentity.Lockout'),
       colProps: { span: 24 },
       defaultValue: true,
-      renderComponentContent: t('AbpIdentity.LockoutEnabled'),
+      renderComponentContent: t('AbpIdentity.Lockout'),
     },
     {
       tab: t('AbpIdentity.Roles'),

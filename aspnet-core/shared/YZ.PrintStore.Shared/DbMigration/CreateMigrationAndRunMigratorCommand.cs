@@ -6,7 +6,7 @@ namespace YZ.PrintStore.Shared
 {
     internal class CreateMigrationAndRunMigratorCommand
     {
-        public virtual async void Execute(string dbMigrationsFolder)
+        public virtual async void Execute(string dbMigrationsFolder, string projectName)
         {
             var dbMigratorProjectPath = GetDbMigratorProjectPath(dbMigrationsFolder);
             if (dbMigratorProjectPath == null)
@@ -24,9 +24,9 @@ namespace YZ.PrintStore.Shared
                 FindDbContextName(dbMigrationsFolder)
                 : null;
 
-            var migrationOutput = AddMigrationAndGetOutput(dbMigrationsFolder, dbContextName, "Migrations");
+            var migrationOutput = AddMigrationAndGetOutput(dbMigrationsFolder, projectName, dbContextName, "Migrations");
             var tenantMigrationOutput = tenantDbContextName != null ?
-                AddMigrationAndGetOutput(dbMigrationsFolder, tenantDbContextName, "TenantMigrations")
+                AddMigrationAndGetOutput(dbMigrationsFolder, projectName, tenantDbContextName, "TenantMigrations")
                 : null;
 
             if (CheckMigrationOutput(migrationOutput) && CheckMigrationOutput(tenantMigrationOutput))
@@ -77,14 +77,14 @@ namespace YZ.PrintStore.Shared
             return Path.GetFileName(dbContext).RemovePostFix(".cs");
         }
 
-        private static string AddMigrationAndGetOutput(string dbMigrationsFolder, string dbContext, string outputDirectory)
+        private static string AddMigrationAndGetOutput(string dbMigrationsFolder, string projectName, string dbContext, string outputDirectory)
         {
             var dbContextOption = string.IsNullOrWhiteSpace(dbContext)
                 ? string.Empty
                 : $"--context {dbContext}";
 
             var addMigrationCmd = $"cd \"{dbMigrationsFolder}\" && " +
-                                  $"dotnet ef migrations add Initial --output-dir {outputDirectory} {dbContextOption}";
+                                  $"dotnet ef migrations add Initial{projectName.Substring(0,1).ToUpper()}{projectName[1..]} --output-dir {outputDirectory} {dbContextOption}";
 
             return CmdHelper.RunCmdAndGetOutput(addMigrationCmd);
         }

@@ -66,9 +66,9 @@ namespace YZ.PrintStore.Shared.DbMigration
 
         protected void AddInitialMigration()
         {
-            Console.WriteLine("Creating initial migration...");
+            Console.WriteLine($"Creating initial {ProjectFloderName} migration...");
 
-            new CreateMigrationAndRunMigratorCommand().Execute(GetEntityFrameworkCoreProjectFolderPath());
+            new CreateMigrationAndRunMigratorCommand().Execute(GetEntityFrameworkCoreProjectFolderPath(), ProjectFloderName);
         }
 
         protected string GetEntityFrameworkCoreProjectFolderPath()

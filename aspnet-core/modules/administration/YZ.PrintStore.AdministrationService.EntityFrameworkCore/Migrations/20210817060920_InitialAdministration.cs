@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace YZ.PrintStore.AdministrationService.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialAdministration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

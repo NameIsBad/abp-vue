@@ -97,6 +97,8 @@ export interface FormProps {
   autoFocusFirstItem?: boolean;
   // Automatically collapse over the specified number of rows
   autoAdvancedLine?: number;
+  // Always show lines
+  alwaysShowLines?: number;
   // Whether to show the operation button
   showActionButtonGroup?: boolean;
 
@@ -200,9 +202,6 @@ export interface FormSchema {
   dynamicDisabled?: boolean | ((renderCallbackParams: RenderCallbackParams) => boolean);
 
   dynamicRules?: (renderCallbackParams: RenderCallbackParams) => Rule[];
-}
-export interface TabFormSchema extends FormSchema {
-  tab: string;
 }
 export interface HelpComponentProps {
   maxWidth: string;

@@ -10,8 +10,8 @@ using YZ.PrintStore.Identity.EntityFrameworkCore;
 namespace YZ.PrintStore.Identity.Migrations
 {
     [DbContext(typeof(IdentityServiceDbContext))]
-    [Migration("20210814115330_Initial")]
-    partial class Initial
+    [Migration("20210817060926_InitialIdentity")]
+    partial class InitialIdentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

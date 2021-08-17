@@ -90,7 +90,6 @@ export type ComponentType =
   | 'InputCountDown'
   | 'Select'
   | 'ApiSelect'
-  | 'SelectOptGroup'
   | 'TreeSelect'
   | 'ApiTreeSelect'
   | 'RadioButtonGroup'

@@ -10,8 +10,8 @@ using YZ.PrintStore.AdministrationService.EntityFrameworkCore;
 namespace YZ.PrintStore.AdministrationService.Migrations
 {
     [DbContext(typeof(AdministrationServiceDbContext))]
-    [Migration("20210814115324_Initial")]
-    partial class Initial
+    [Migration("20210817060920_InitialAdministration")]
+    partial class InitialAdministration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
