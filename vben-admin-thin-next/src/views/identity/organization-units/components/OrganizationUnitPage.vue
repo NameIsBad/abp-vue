@@ -12,7 +12,7 @@
             {{ t('AbpIdentity.OrganizationUnit:AddRoot') }}
           </a-button>
         </template>
-        <OrganizationUnitTree @select="handleSelect" />
+        <OrganizationUnitTree ref="organizationUnitTreeRef" @select="handleSelect" />
       </Card>
     </Col>
     <Col :span="14">
@@ -55,6 +55,8 @@
       const { t } = useI18n();
       const activeKey = ref('members');
       const ouIdRef = ref('');
+      type OrganizationUnitTreeType = InstanceType<typeof OrganizationUnitTree>;
+      const organizationUnitTreeRef = ref<Nullable<OrganizationUnitTreeType>>(null);
 
       const { hasPermission } = usePermission();
 
@@ -63,13 +65,14 @@
       }
 
       function handleAddNew() {
-        console.log('handleAddNew');
+        organizationUnitTreeRef.value!.openModal();
       }
 
       return {
         t,
         activeKey,
         ouIdRef,
+        organizationUnitTreeRef,
         handleSelect,
         handleAddNew,
         hasPermission,

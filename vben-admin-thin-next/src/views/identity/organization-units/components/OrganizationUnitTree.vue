@@ -37,6 +37,7 @@
       const {
         formSchemas,
         registerModal,
+        openModal,
         organizationUnitTree,
         getContentMenus,
         handleDrop,
@@ -48,6 +49,7 @@
         t,
         formSchemas,
         registerModal,
+        openModal,
         organizationUnitTree,
         getContentMenus,
         handleDrop,

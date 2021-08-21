@@ -29,7 +29,7 @@ export function useOuTree({ emit }: { emit: EmitType }) {
     {
       field: 'displayName',
       component: 'Input',
-      label: t('AbpIdentity.DisplayName'),
+      label: t('AbpIdentity.OrganizationUnit:DisplayName'),
       colProps: { span: 24 },
       required: true,
     },
@@ -113,6 +113,7 @@ export function useOuTree({ emit }: { emit: EmitType }) {
     organizationUnitTree,
     getContentMenus,
     registerModal,
+    openModal,
     formSchemas,
     handleDrop,
     handleSelect,
