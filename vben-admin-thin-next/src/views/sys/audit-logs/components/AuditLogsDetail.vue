@@ -1,10 +1,9 @@
-<template> <div> hhhh</div></template>
+<template> </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue';
-
   export default defineComponent({
-    name: 'AuditLogs',
+    name: 'AutitLogsDetail',
     setup() {
       return {};
     },
