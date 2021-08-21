@@ -10,4 +10,5 @@ export default {
   securityLogs: '安全日志',
   identity: '身份标识管理',
   claimTypes: '声明类型',
+  auditLogs: '审计日志',
 };

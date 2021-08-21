@@ -62,7 +62,6 @@ export const useAbpStore = defineStore({
         const transferCulture = localization.languagesMap['vben-admin-ui'].filter(
           (x) => x.value === localization.currentCulture.cultureName
         );
-        console.log('localization', localization.values);
         if (transferCulture && transferCulture.length > 0) {
           i18n.global.mergeLocaleMessage(transferCulture[0].name, localization.values);
         } else {

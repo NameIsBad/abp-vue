@@ -15,13 +15,12 @@ const system: AppRouteModule = {
   },
   children: [
     {
-      path: '/organization-units',
-      name: 'OrganizationUnits',
-      component: getParentLayout('OrganizationUnits'),
+      path: '/identity',
+      name: 'Identity',
+      component: getParentLayout('Identity'),
       meta: {
         title: t('routes.system.identity'),
       },
-      redirect: '/system/organization-units',
       children: [
         {
           path: 'organization-units',
@@ -74,6 +73,16 @@ const system: AppRouteModule = {
           component: () => import('/@/views/identity/security-logs/index.vue'),
         },
       ],
+    },
+    {
+      path: 'audit-logs',
+      name: 'auditLogs',
+      meta: {
+        title: t('routes.system.auditLogs'),
+        ignoreKeepAlive: false,
+        roles: ['AbpAuditing.AuditLog'],
+      },
+      component: () => import('/@/views/sys/audit-logs/index.vue'),
     },
   ],
 };

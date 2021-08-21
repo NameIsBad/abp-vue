@@ -13,4 +13,5 @@ export default {
   securityLogs: 'Security Logs',
   identity: 'Identity Management',
   claimTypes: 'Claim Types',
+  auditLogs: 'Audit Logs',
 };
