@@ -1,14 +1,16 @@
 export default {
-  moduleName: 'System management',
+  moduleName: 'System Management',
 
-  account: 'Account management',
+  account: 'Account Management',
   account_detail: 'Account detail',
   password: 'Change password',
 
-  dept: 'Department management',
+  dept: 'Department Management',
 
-  menu: 'Menu management',
-  role: 'Role management',
+  menu: 'Menu Management',
+  role: 'Role Management',
   organization: 'Organization Units',
   securityLogs: 'Security Logs',
+  identity: 'Identity Management',
+  claimTypes: 'Claim Types',
 };
