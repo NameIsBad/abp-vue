@@ -1,9 +1,10 @@
+import { useI18n } from '/@/hooks/web/useI18n';
 import { useTable } from '/@/components/Table';
 import { formatPagedRequest } from '/@/utils/http/abp/helper';
-import { getList, getById, deleteById } from '/@/api/auditing/auditLog';
-import { getSearchFormSchemas } from '../datas/ModalData';
-import { getDataColumns } from '../datas/TableData';
+import { getList } from '/@/api/auditing/auditLog';
+import { getDataColumns, getSearchFormSchemas } from '../datas/TableData';
 
+const { t } = useI18n();
 export function useAuditLogsTable() {
   const [registerTable] = useTable({
     rowKey: 'id',
@@ -19,7 +20,7 @@ export function useAuditLogsTable() {
     showIndexColumn: false,
     canResize: false,
     immediate: true,
-    rowSelection: { type: 'checkbox' },
+    clickToRowSelect: false,
     formConfig: getSearchFormSchemas(),
     actionColumn: {
       width: 220,

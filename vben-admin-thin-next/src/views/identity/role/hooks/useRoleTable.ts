@@ -6,8 +6,8 @@ import { getDataColumns } from '../datas/TableData';
 import { getSearchFormSchemas } from '../datas/ModalData';
 import { Modal } from 'ant-design-vue';
 
+const { t } = useI18n();
 export function useRoleTable() {
-  const { t } = useI18n();
   const [registerTable, { reload: reloadTable }] = useTable({
     rowKey: 'id',
     title: t('AbpIdentity.Roles'),
