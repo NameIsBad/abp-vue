@@ -1,5 +1,12 @@
 <template>
-  <BasicModal @register="registerModal" v-bind="$attrs" title="详情">
+  <BasicModal
+    @register="registerModal"
+    v-bind="$attrs"
+    title="详情"
+    :showOkBtn="false"
+    cancelText="关闭"
+    width="1000px"
+  >
     <a-tabs type="card">
       <a-tab-pane key="1" tab="总体">
         <a-descriptions :column="1" bordered>

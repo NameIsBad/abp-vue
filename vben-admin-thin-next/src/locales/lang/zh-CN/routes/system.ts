@@ -11,4 +11,5 @@ export default {
   identity: '身份标识管理',
   claimTypes: '声明类型',
   auditLogs: '审计日志',
+  tenants: '租户',
 };

@@ -1,4 +1,8 @@
-import { FullAuditedEntityDto, PagedAndSortedResultRequestDto } from '/@/api/model/baseModel';
+import {
+  FullAuditedEntityDto,
+  PagedAndSortedResultRequestDto,
+  PagedResultDto,
+} from '/@/api/model/baseModel';
 
 /** 租户查询过滤对象 */
 export class TenantGetByPaged extends PagedAndSortedResultRequestDto {
@@ -26,10 +30,10 @@ export class TenantDto extends FullAuditedEntityDto {
 
 /** 租户连接字符串 */
 export class TenantConnectionString {
+  /** 租户标识 */
+  id!: string;
   /** 名称 */
-  name = '';
-  /** 值 */
-  value = '';
+  defaultConnectionString = '';
 }
 
 export class FindTenantResult {
@@ -37,3 +41,5 @@ export class FindTenantResult {
   tenantId = '';
   success = '';
 }
+
+export class TenantPageResult extends PagedResultDto<TenantDto> {}

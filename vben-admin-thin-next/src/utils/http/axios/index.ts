@@ -166,7 +166,9 @@ const transform: AxiosTransform = {
   responseInterceptorsCatch: (error: any) => {
     const errorLogStore = useErrorLogStoreWithOut();
     errorLogStore.addAjaxErrorInfo(error);
-    checkResponse(error.response);
+    if (error.response) checkResponse(error.response);
+    console.error(error);
+
     return Promise.reject(error);
   },
 };

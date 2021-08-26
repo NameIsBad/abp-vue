@@ -14,4 +14,5 @@ export default {
   identity: 'Identity Management',
   claimTypes: 'Claim Types',
   auditLogs: 'Audit Logs',
+  tenants: 'Tenants',
 };

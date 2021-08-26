@@ -15,6 +15,16 @@ const system: AppRouteModule = {
   },
   children: [
     {
+      path: 'tenants',
+      name: 'Tenants',
+      meta: {
+        title: t('routes.system.tenants'),
+        ignoreKeepAlive: false,
+        roles: ['AbpTenantManagement.Tenants'],
+      },
+      component: () => import('/@/views/saas/tenants/index.vue'),
+    },
+    {
       path: '/identity',
       name: 'Identity',
       component: getParentLayout('Identity'),

@@ -42,14 +42,9 @@
     },
     setup() {
       const { registerTable } = useAuditLogsTable();
-      const [registerModal, { setModalProps, openModal }] = useModal();
+      const [registerModal, { openModal }] = useModal();
 
       function showDetail(record) {
-        setModalProps({
-          showOkBtn: false,
-          cancelText: '关闭',
-          width: '1000px',
-        });
         openModal(true, record.id, true);
       }
 
