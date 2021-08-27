@@ -74,7 +74,7 @@ export function getConnectStringFormSchemas(): FormSchema[] {
       label: '连接字符串',
       colProps: { span: 24 },
       show: ({ values }) => {
-        return !!values.isDefault;
+        return !values.isDefault;
       },
     },
   ];

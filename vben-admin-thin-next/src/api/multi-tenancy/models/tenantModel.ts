@@ -32,6 +32,7 @@ export class TenantDto extends FullAuditedEntityDto {
 export class TenantConnectionString {
   /** 租户标识 */
   id!: string;
+  isDefault!: Boolean;
   /** 名称 */
   defaultConnectionString = '';
 }

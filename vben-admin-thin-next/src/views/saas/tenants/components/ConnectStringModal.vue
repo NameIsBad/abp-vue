@@ -23,25 +23,16 @@
   import { BasicForm, FormActionType } from '/@/components/Form';
   import { BasicModal, useModalInner } from '/@/components/Modal';
   import { useConnectStringModal } from '../hooks/useConnectStringModal';
-  import { TenantConnectionString } from '/@/api/multi-tenancy/models/tenantModel';
-  import { getConnectStringById } from '/@/api/multi-tenancy/tenants';
 
   const emit = defineEmits(['change', 'register']);
 
   const submiting = ref(false);
-  const tenantRef = ref<Nullable<TenantConnectionString>>(null);
+  const idRef = ref<Nullable<string>>(null);
   const formElRef = ref<Nullable<FormActionType>>(null);
   const [registerModal, { closeModal }] = useModalInner(async (val) => {
-    var connectString = await getConnectStringById(val);
-    tenantRef.value = {
-      id: val,
-      defaultConnectionString: connectString,
-    };
-    const formEl = unref(formElRef);
-    formEl?.resetFields();
-    formEl?.setFieldsValue(tenantRef.value);
+    idRef.value = val;
   });
-  const { formSchemas, handleSubmit } = useConnectStringModal();
+  const { formSchemas, handleSubmit } = useConnectStringModal({ idRef, formElRef });
 
   function handleSaveChanges() {
     const formEl = unref(formElRef);
