@@ -2,8 +2,8 @@
   <div class="content">
     <BasicTable @register="registerTable">
       <template #httpMethod="{ record }">
-        <Tag :color="statusCode(record.httpStatusCode)">{{ record.httpStatusCode }}</Tag>
-        <Tag :color="httpMethod(record.httpMethod)">{{ record.httpMethod }}</Tag>
+        <Tag :color="httpStatusCodeColor(record.httpStatusCode)">{{ record.httpStatusCode }}</Tag>
+        <Tag :color="httpMethodColor(record.httpMethod)">{{ record.httpMethod }}</Tag>
         {{ record.url }}
       </template>
       <template #action="{ record }">
@@ -23,40 +23,20 @@
   </div>
 </template>
 
-<script lang="ts">
-  import { defineComponent } from 'vue';
+<script lang="ts" setup>
   import AuditLogsDetail from './AuditLogsDetail.vue';
   import { useAuditLogsTable } from '../hooks/useAuditLogsTable';
-  import { statusCode, httpMethod } from '../hooks/auditLogsTag';
+  import { useAuditLog } from '../hooks/auditLogsTag';
   import { BasicTable, TableAction } from '/@/components/Table';
   import { useModal } from '/@/components/Modal';
   import { Tag } from 'ant-design-vue';
 
-  export default defineComponent({
-    name: 'AutitLogsTable',
-    components: {
-      AuditLogsDetail,
-      BasicTable,
-      TableAction,
-      Tag,
-    },
-    setup() {
-      const { registerTable } = useAuditLogsTable();
-      const [registerModal, { openModal }] = useModal();
-
-      function showDetail(record) {
-        openModal(true, record.id, true);
-      }
-
-      return {
-        registerTable,
-        statusCode,
-        httpMethod,
-        showDetail,
-        registerModal,
-      };
-    },
-  });
+  const { registerTable } = useAuditLogsTable();
+  const [registerModal, { openModal }] = useModal();
+  const { httpStatusCodeColor, httpMethodColor } = useAuditLog();
+  function showDetail(record) {
+    openModal(true, record.id, true);
+  }
 </script>
 
 <style scoped>
