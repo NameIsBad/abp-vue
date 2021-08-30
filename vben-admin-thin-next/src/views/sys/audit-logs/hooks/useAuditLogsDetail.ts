@@ -5,11 +5,10 @@ import { formatToDateTime } from '/@/utils/dateUtil';
 import { getById } from '/@/api/auditing/auditLog';
 
 interface useAuditLogsDetailContext {
-  id: Ref<string>;
   record: Ref<AuditLog>;
 }
 
-export function useAuditLogsDetail({ id, record }: useAuditLogsDetailContext) {
+export function useAuditLogsDetail({ record }: useAuditLogsDetailContext) {
   const actionTitle = computed<String>(() => {
     return `操作(${record.value.actions?.length})`;
   });
@@ -18,7 +17,7 @@ export function useAuditLogsDetail({ id, record }: useAuditLogsDetailContext) {
   });
 
   watch(
-    () => unref(id.value),
+    () => record.value.id,
     async (val) => {
       record.value = await getById(val);
     }

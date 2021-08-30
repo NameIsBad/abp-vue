@@ -78,7 +78,6 @@
   const CollapsePanel = Collapse.Panel;
 
   const record = ref<AuditLog>({} as AuditLog);
-  const id = ref('');
   let data = reactive({
     activeKey: ['0'],
     tableKey: '1',
@@ -87,9 +86,9 @@
   const [registerModal] = useModalInner(async (val) => {
     data.activeKey = ['0'];
     data.tableKey = '1';
-    id.value = val;
+    record.value.id = val;
   });
-  const { actionTitle, formatDateVal } = useAuditLogsDetail({ id, record });
+  const { actionTitle, formatDateVal } = useAuditLogsDetail({ record });
 
   const { httpStatusCodeColor, httpMethodColor } = useAuditLog();
 </script>
