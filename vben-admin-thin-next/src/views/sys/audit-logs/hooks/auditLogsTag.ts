@@ -1,4 +1,3 @@
-import { computed } from 'vue';
 import { ChangeType } from '/@/api/auditing/model/auditLogModel';
 
 export function useAuditLog() {
@@ -15,34 +14,27 @@ export function useAuditLog() {
     ['OPTIONS']: 'cyan',
     ['PATCH']: 'pink',
   };
-  const entityChangeTypeColor = computed(() => {
-    return (changeType: ChangeType) => changeTypeColorMap[changeType].color;
-  });
-  const entityChangeType = computed(() => {
-    return (changeType: ChangeType) => changeTypeColorMap[changeType].value;
-  });
-  const httpMethodColor = computed(() => {
-    return (method: string) => {
-      return methodColorMap[method];
-    };
-  });
-  const httpStatusCodeColor = computed(() => {
-    return (statusCode: number) => {
-      if (statusCode >= 200 && statusCode < 300) {
-        return '#87d068';
-      }
-      if (statusCode >= 300 && statusCode < 400) {
-        return '#108ee9';
-      }
-      if (statusCode >= 400 && statusCode < 500) {
-        return 'orange';
-      }
-      if (statusCode >= 500) {
-        return 'red';
-      }
-      return 'cyan';
-    };
-  });
+  const entityChangeTypeColor = (changeType: ChangeType) => changeTypeColorMap[changeType].color;
+
+  const entityChangeType = (changeType: ChangeType) => changeTypeColorMap[changeType].value;
+
+  const httpMethodColor = (method: string) => methodColorMap[method];
+
+  const httpStatusCodeColor = (statusCode: number) => {
+    if (statusCode >= 200 && statusCode < 300) {
+      return '#87d068';
+    }
+    if (statusCode >= 300 && statusCode < 400) {
+      return '#108ee9';
+    }
+    if (statusCode >= 400 && statusCode < 500) {
+      return 'orange';
+    }
+    if (statusCode >= 500) {
+      return 'red';
+    }
+    return 'cyan';
+  };
 
   return {
     httpMethodColor,

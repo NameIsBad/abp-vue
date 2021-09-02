@@ -9,36 +9,7 @@
   >
     <Tabs type="card" v-model:activeKey="data.tableKey">
       <TabPane key="1" tab="总体">
-        <Descriptions :column="1" bordered>
-          <DescriptionsItem label="Http状态码" :labelStyle="{ width: '140px' }">
-            <Tag :color="httpStatusCodeColor(record.httpStatusCode || -1)">{{
-              record.httpStatusCode
-            }}</Tag>
-          </DescriptionsItem>
-          <DescriptionsItem label="Http方法">
-            <Tag :color="httpMethodColor(record.httpMethod || '')">{{ record.httpMethod }}</Tag>
-          </DescriptionsItem>
-          <DescriptionsItem label="Url">{{ record.url }}</DescriptionsItem>
-          <DescriptionsItem label="客户端IP地址">
-            {{ record.clientIpAddress }}
-          </DescriptionsItem>
-          <DescriptionsItem label="客户端名称">{{ record.clientName }}</DescriptionsItem>
-          <DescriptionsItem label="异常">
-            <div>
-              <pre lang="c-sharp">{{ record.exceptions }}</pre>
-            </div>
-          </DescriptionsItem>
-          <DescriptionsItem label="用户名">{{ record.userName }}</DescriptionsItem>
-          <DescriptionsItem label="时间">{{
-            formatDateVal(record.executionTime)
-          }}</DescriptionsItem>
-          <DescriptionsItem label="持续时间">{{ record.executionDuration }}</DescriptionsItem>
-          <DescriptionsItem label="浏览器信息">{{ record.browserInfo }}</DescriptionsItem>
-          <DescriptionsItem label="应用名称">{{ record.applicationName }}</DescriptionsItem>
-          <DescriptionsItem label="关联Id">{{ record.correlationId }}</DescriptionsItem>
-          <DescriptionsItem label="评论">{{ record.comments }}</DescriptionsItem>
-          <DescriptionsItem label="额外属性">{{ record.extraProperties }}</DescriptionsItem>
-        </Descriptions>
+        <Description @register="registerOverAll" />
       </TabPane>
       <TabPane key="2" :tab="actionTitle">
         <Collapse v-model:activeKey="data.activeKey" style="background: #fff">
@@ -70,9 +41,9 @@
   import { ref, reactive } from 'vue';
   import { AuditLog } from '/@/api/auditing/model/auditLogModel';
   import { BasicModal, useModalInner } from '/@/components/Modal';
-  import { useAuditLog } from '../hooks/auditLogsTag';
   import { useAuditLogsDetail } from '../hooks/useAuditLogsDetail';
-  import { Descriptions, Tabs, Collapse, Tag } from 'ant-design-vue';
+  import { Description } from '/@/components/Description/index';
+  import { Descriptions, Tabs, Collapse } from 'ant-design-vue';
   const DescriptionsItem = Descriptions.Item;
   const TabPane = Tabs.TabPane;
   const CollapsePanel = Collapse.Panel;
@@ -88,9 +59,7 @@
     data.tableKey = '1';
     record.value.id = val;
   });
-  const { actionTitle, formatDateVal } = useAuditLogsDetail({ record });
-
-  const { httpStatusCodeColor, httpMethodColor } = useAuditLog();
+  const { registerOverAll, actionTitle } = useAuditLogsDetail({ record });
 </script>
 
 <style scoped>
