@@ -57,6 +57,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YZ.PrintStore.Shared", "sha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YZ.PrintStore.DbMigrator", "dbMigrator\YZ.PrintStore.DbMigrator\YZ.PrintStore.DbMigrator.csproj", "{52AACE1D-F916-4354-B962-116763C1E39A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "code-generator", "code-generator", "{535CC669-5841-4073-B48F-16E2A1082055}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZ.PrintStore.CodeGenerator", "modules\code-generator\YZ.PrintStore.CodeGenerator\YZ.PrintStore.CodeGenerator.csproj", "{2D735DAF-FF8E-4083-8275-EC0A5E926A0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +147,10 @@ Global
 		{52AACE1D-F916-4354-B962-116763C1E39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52AACE1D-F916-4354-B962-116763C1E39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52AACE1D-F916-4354-B962-116763C1E39A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D735DAF-FF8E-4083-8275-EC0A5E926A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D735DAF-FF8E-4083-8275-EC0A5E926A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D735DAF-FF8E-4083-8275-EC0A5E926A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D735DAF-FF8E-4083-8275-EC0A5E926A0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +179,8 @@ Global
 		{7E6B3F08-5DCD-4543-BAFA-4A87B9DF1D56} = {6F5EE187-9607-4491-86E8-B7EA27FD54B1}
 		{54FB26E6-4D17-4F92-9305-C32B62A3451A} = {500D7D74-C489-484C-AE86-A7FA29FF0E24}
 		{52AACE1D-F916-4354-B962-116763C1E39A} = {C7F798CB-C0C9-4F1D-9484-2F553D02B41B}
+		{535CC669-5841-4073-B48F-16E2A1082055} = {C1D89646-1D2E-4A8E-85EE-2716E8DF555E}
+		{2D735DAF-FF8E-4083-8275-EC0A5E926A0E} = {535CC669-5841-4073-B48F-16E2A1082055}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}
