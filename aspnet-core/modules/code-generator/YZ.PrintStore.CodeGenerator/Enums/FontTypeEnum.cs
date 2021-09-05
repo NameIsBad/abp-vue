@@ -4,4 +4,10 @@
     {
         Vben
     }
+
+    public enum ComponentTypeEnum
+    {
+        列表,
+        模态框
+    }
 }

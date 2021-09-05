@@ -20,7 +20,7 @@ namespace YZ.PrintStore.CodeGenerator
 
         public async Task Generator(GeneratorRequestDto request)
         {
-            var result = await _razorLightEngine.CompileRenderAsync<object>($"/Templates/{request.Type}/template1.cshtml", null);
+            var result = await _razorLightEngine.CompileRenderAsync<object>($"/Templates/{request.Type}/template.cshtml", null);
 
             await Task.CompletedTask;
         }
