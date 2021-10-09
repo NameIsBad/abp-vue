@@ -83,7 +83,7 @@ const transform: AxiosTransform = {
 
   // 请求之前处理config
   beforeRequestHook: (config, options) => {
-    const { apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true } = options;
+    const { apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true, urlPrefix } = options;
 
     if (joinPrefix) {
       config.url = `${urlPrefix}${config.url}`;
@@ -118,7 +118,7 @@ const transform: AxiosTransform = {
         if (joinParamsToUrl) {
           config.url = setObjToUrlParams(
             config.url as string,
-            Object.assign({}, config.params, config.data)
+            Object.assign({}, config.params, config.data),
           );
         }
       } else {
@@ -194,7 +194,7 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
         // 配置项，下面的选项都可以在独立的接口请求中覆盖
         requestOptions: {
           // 默认将prefix 添加到url
-          joinPrefix: true,
+          joinPrefix: false,
           // 是否返回原生响应头 比如：需要获取响应头时使用该属性
           isReturnNativeResponse: false,
           // 需要对返回数据进行处理
@@ -215,8 +215,8 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
           withToken: true,
         },
       },
-      opt || {}
-    )
+      opt || {},
+    ),
   );
 }
 export const defHttp = createAxios();

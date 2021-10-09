@@ -126,12 +126,7 @@
 
             const width = contentMinWidth;
             return (
-              <Descriptions.Item
-                labelStyle={item.labelStyle}
-                label={renderLabel(item)}
-                key={field}
-                span={span}
-              >
+              <Descriptions.Item label={renderLabel(item)} key={field} span={span}>
                 {() => {
                   if (!contentMinWidth) {
                     return getContent();
