@@ -1,14 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.AspNetCore.Mvc;
 using YZ.PrintStore.Identity.Security;
 
 namespace YZ.PrintStore.Identity.Auditing.Security
 {
+    [RemoteService(Name = "auditing")]
     [Area("auditing")]
     [ControllerName("security-log")]
+    [Authorize(IdentityPermissions.SecurityLog.Default)]
     [Route("api/auditing/security-log")]
     public class SecurityLogController : AbpController, ISecurityLogAppService
     {

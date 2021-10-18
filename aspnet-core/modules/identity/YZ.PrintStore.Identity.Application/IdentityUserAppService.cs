@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Volo.Abp;
@@ -19,7 +18,7 @@ namespace YZ.PrintStore.Identity
         protected IOptions<IdentityOptions> IdentityOptions { get; }
         public IdentityUserAppService(
             IdentityUserManager userManager,
-            IOptions<IdentityOptions> identityOptions) 
+            IOptions<IdentityOptions> identityOptions)
         {
             UserManager = userManager;
             IdentityOptions = identityOptions;
@@ -160,7 +159,7 @@ namespace YZ.PrintStore.Identity
             await CurrentUnitOfWork.SaveChangesAsync();
         }
 
-        protected virtual async Task<IdentityUser> GetUserAsync(Guid id)
+        protected virtual async Task<Volo.Abp.Identity.IdentityUser> GetUserAsync(Guid id)
         {
             await IdentityOptions.SetAsync();
             var user = await UserManager.GetByIdAsync(id);

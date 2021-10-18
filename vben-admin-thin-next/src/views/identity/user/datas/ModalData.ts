@@ -43,6 +43,9 @@ export function getModalFormSchemas(): TabFormSchema[] {
       label: t('AbpIdentity.UserName'),
       colProps: { span: 24 },
       required: true,
+      dynamicDisabled: ({ values }) => {
+        return values.id;
+      },
     },
     {
       tab: t('AbpIdentity.UserInformations'),
@@ -58,13 +61,13 @@ export function getModalFormSchemas(): TabFormSchema[] {
         return true;
       },
     },
-    {
-      tab: t('AbpIdentity.UserInformations'),
-      field: 'surname',
-      component: 'Input',
-      label: t('AbpIdentity.DisplayName:Surname'),
-      colProps: { span: 24 },
-    },
+    // {
+    //   tab: t('AbpIdentity.UserInformations'),
+    //   field: 'surname',
+    //   component: 'Input',
+    //   label: t('AbpIdentity.DisplayName:Surname'),
+    //   colProps: { span: 24 },
+    // },
     {
       tab: t('AbpIdentity.UserInformations'),
       field: 'name',

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.AspNetCore.Mvc;
@@ -11,12 +12,13 @@ namespace YZ.PrintStore.Identity
     [RemoteService(true, Name = IdentityRemoteServiceConsts.RemoteServiceName)]
     [Area("identity")]
     [ControllerName("Role")]
+    [Authorize(Volo.Abp.Identity.IdentityPermissions.Roles.Default)]
     [Route("api/identity/roles")]
     public class IdentityRoleController : AbpController, IIdentityRoleAppService
     {
         protected IIdentityRoleAppService RoleAppService { get; }
         public IdentityRoleController(
-            IIdentityRoleAppService roleAppService) 
+            IIdentityRoleAppService roleAppService)
         {
             RoleAppService = roleAppService;
         }

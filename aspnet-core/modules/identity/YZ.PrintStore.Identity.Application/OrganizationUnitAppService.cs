@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Identity;
@@ -126,8 +125,8 @@ namespace YZ.PrintStore.Identity
                 .GetUnaddedRolesCountAsync(origanizationUnit, input.Filter);
 
             var origanizationUnitRoles = await OrganizationUnitRepository
-                .GetUnaddedRolesAsync(origanizationUnit, 
-                input.Sorting, input.MaxResultCount, 
+                .GetUnaddedRolesAsync(origanizationUnit,
+                input.Sorting, input.MaxResultCount,
                 input.SkipCount, input.Filter);
 
             return new PagedResultDto<IdentityRoleDto>(origanizationUnitRoleCount,
@@ -161,7 +160,7 @@ namespace YZ.PrintStore.Identity
                 .GetUnaddedUsersCountAsync(origanizationUnit, input.Filter);
             var origanizationUnitUsers = await OrganizationUnitRepository
                 .GetUnaddedUsersAsync(origanizationUnit,
-                input.Sorting, input.MaxResultCount, 
+                input.Sorting, input.MaxResultCount,
                 input.SkipCount, input.Filter);
 
             return new PagedResultDto<IdentityUserDto>(origanizationUnitUserCount,

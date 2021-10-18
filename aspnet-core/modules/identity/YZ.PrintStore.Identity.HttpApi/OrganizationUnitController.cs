@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ namespace YZ.PrintStore.Identity
     [RemoteService(Name = IdentityRemoteServiceConsts.RemoteServiceName)]
     [Area("identity")]
     [ControllerName("organization-units")]
+    [Authorize(IdentityPermissions.OrganizationUnits.Default)]
     [Route("api/identity/organization-units")]
     public class OrganizationUnitController : AbpController, IOrganizationUnitAppService
     {

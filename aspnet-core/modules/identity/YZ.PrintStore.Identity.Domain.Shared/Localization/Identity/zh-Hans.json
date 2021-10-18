@@ -70,6 +70,7 @@
     "DisplayName:SmsVerifyCode": "短信验证码",
     "DisplayName:EmailVerifyCode": "邮件验证码",
     "DisplayName:WeChatCode": "微信登录凭证",
-    "SendRepeatSmsVerifyCode": "手机验证码不能在 {0} 分钟内重复发送!"
+    "SendRepeatSmsVerifyCode": "手机验证码不能在 {0} 分钟内重复发送!",
+    "AbpIdentity.DisplayName:Name": "姓名" 
   }
 }

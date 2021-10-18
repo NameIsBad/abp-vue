@@ -51,10 +51,10 @@
             "
           >
             <LoginForm />
-            <ForgetPasswordForm />
-            <RegisterForm />
-            <MobileForm />
-            <QrCodeForm />
+            <!-- <ForgetPasswordForm /> -->
+            <!-- <RegisterForm /> -->
+            <!-- <MobileForm /> -->
+            <!-- <QrCodeForm /> -->
           </div>
         </div>
       </div>

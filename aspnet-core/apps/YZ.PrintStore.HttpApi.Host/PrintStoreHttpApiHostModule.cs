@@ -8,12 +8,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
+using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Swashbuckle.AspNetCore.SwaggerUI;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
@@ -90,7 +92,6 @@ namespace YZ.PrintStore
         )]
     public class PrintStoreHttpApiHostModule : AbpModule
     {
-
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             var configuration = context.Services.GetConfiguration();
@@ -166,6 +167,13 @@ namespace YZ.PrintStore
              * SignalR can not send authorization header. So, we are getting it from query string as an encrypted text. */
             Task QueryStringTokenResolver(MessageReceivedContext context)
             {
+                var accessToken = context.Request.Query["access_token"];
+                // 如果请求来自signalr
+                var path = context.HttpContext.Request.Path;
+                if (path.StartsWithSegments("/signalr"))
+                {
+                    context.Token = accessToken;
+                }
                 // if (!context.HttpContext.Request.Path.HasValue ||
                 //     !context.HttpContext.Request.Path.Value.StartsWith("/signalr"))
                 // {
@@ -199,15 +207,35 @@ namespace YZ.PrintStore
                     });
                     options.DocInclusionPredicate((docName, description) => true);
                     options.CustomSchemaIds(type => type.FullName);
+
                     // Define the BearerAuth scheme that's in use
-                    options.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme()
+                    options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, new OpenApiSecurityScheme
                     {
                         Description =
                             "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
                         Name = "Authorization",
                         In = ParameterLocation.Header,
-                        Type = SecuritySchemeType.ApiKey
+                        Type = SecuritySchemeType.Http,
+                        Scheme = JwtBearerDefaults.AuthenticationScheme,
+                        BearerFormat = "JWT"
                     });
+                    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                    {
+                        {
+                            new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme, Id = "Bearer"
+                                }
+                            },
+                            new List<string>()
+                        }
+                    });
+                    options.OperationFilter<AddResponseHeadersFilter>();
+                    options.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+                    options.OperationFilter<SecurityRequirementsOperationFilter>();
+
                     // var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                     // var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                     // options.IncludeXmlComments(xmlPath);

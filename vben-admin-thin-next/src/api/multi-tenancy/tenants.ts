@@ -11,7 +11,7 @@ import { format } from '/@/utils/strings';
 
 enum Api {
   Tenants = '/api/multi-tenancy/tenants',
-  TenantsById = '​/api​/multi-tenancy​/tenants​/{id}',
+  TenantsById = '/api/multi-tenancy/tenants/{id}',
   ConnectString = '/api/multi-tenancy/tenants/{id}/default-connection-string',
 }
 
@@ -31,7 +31,9 @@ export const deleteById = (id: string) => {
 export const update = (id: string, input: TenantCreateOrEdit) => {
   return defAbpHttp.put({
     url: format(Api.TenantsById, { id: id }),
-    data: input,
+    data: {
+      name: input.name,
+    },
   });
 };
 
@@ -80,7 +82,7 @@ export const updateConnectString = (input: TenantConnectionString) => {
     },
     {
       joinParamsToUrl: true,
-    }
+    },
   );
 };
 

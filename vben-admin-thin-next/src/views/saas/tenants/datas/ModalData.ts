@@ -27,6 +27,12 @@ export function getModalFormSchemas(): FormSchema[] {
           type: 'email',
         },
       ],
+      ifShow: ({ values }) => {
+        if (values.id) {
+          return false;
+        }
+        return true;
+      },
     },
     {
       field: 'adminPassword',
@@ -34,12 +40,24 @@ export function getModalFormSchemas(): FormSchema[] {
       label: '管理员密码 ',
       colProps: { span: 24 },
       required: true,
+      ifShow: ({ values }) => {
+        if (values.id) {
+          return false;
+        }
+        return true;
+      },
     },
     {
       field: 'isDefault',
       component: 'Checkbox',
       label: '使用共享数据库',
       colProps: { span: 24 },
+      ifShow: ({ values }) => {
+        if (values.id) {
+          return false;
+        }
+        return true;
+      },
     },
     {
       field: 'defaultConnectionString',
