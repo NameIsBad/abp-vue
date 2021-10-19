@@ -94,6 +94,16 @@ const system: AppRouteModule = {
       },
       component: () => import('/@/views/sys/audit-logs/index.vue'),
     },
+    {
+      path: 'settings',
+      name: 'settings',
+      meta: {
+        title: t('routes.system.setting'),
+        ignoreKeepAlive: false,
+        roles: ['SettingUi.ShowSettingPage'],
+      },
+      component: () => import('/@/views/settings/index.vue'),
+    },
   ],
 };
 

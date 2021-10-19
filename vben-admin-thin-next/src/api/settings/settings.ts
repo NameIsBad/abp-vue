@@ -1,36 +1,21 @@
-import { defHttp } from '/@/utils/http/axios';
-import { SettingGroup, SettingsUpdate } from './model/settingModel';
+import { defAbpHttp } from '/@/utils/http/abp';
+import { SettingGroup, UpdateSettingInput } from './model/settingModel';
 import { ListResultDto } from '/@/api/model/baseModel';
 
 enum Api {
-  GetGlobalSettings = '/api/setting-management/settings/by-global',
-  SetGlobalSettings = '/api/setting-management/settings/change-global',
-  GetCurrentTenantSettings = '/api/setting-management/settings/by-current-tenant',
-  SetCurrentTenantSettings = '/api/setting-management/settings/change-current-tenant',
+  GetAllSettings = '/api/identity/settings',
+  UpdateSettings = '/api/identity/settings',
 }
 
-export const getGlobalSettings = () => {
-  return defHttp.get<ListResultDto<SettingGroup>>({
-    url: Api.GetGlobalSettings,
+export const getAllSettingsAsync = () => {
+  return defAbpHttp.get<ListResultDto<SettingGroup>>({
+    url: Api.GetAllSettings,
   });
 };
 
-export const setGlobalSettings = (payload: SettingsUpdate) => {
-  return defHttp.put({
-    data: payload,
-    url: Api.SetGlobalSettings,
-  });
-};
-
-export const getCurrentTenantSettings = () => {
-  return defHttp.get<ListResultDto<SettingGroup>>({
-    url: Api.GetCurrentTenantSettings,
-  });
-};
-
-export const setCurrentTenantSettings = (payload: SettingsUpdate) => {
-  return defHttp.put({
-    data: payload,
-    url: Api.SetCurrentTenantSettings,
+export const updateSettingsAsync = (input: UpdateSettingInput) => {
+  return defAbpHttp.post({
+    url: Api.UpdateSettings,
+    data: input,
   });
 };

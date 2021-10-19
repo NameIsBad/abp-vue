@@ -1,3 +1,4 @@
+using EasyAbp.Abp.SettingUi;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Caching.StackExchangeRedis;
@@ -12,7 +13,8 @@ namespace YZ.PrintStore.Identity
         typeof(IdentityApplicationContractsModule),
         typeof(AbpCachingStackExchangeRedisModule),
         typeof(AbpTenantManagementApplicationModule),
-        typeof(IdentityDomainModule)
+        typeof(IdentityDomainModule),
+        typeof(AbpSettingUiApplicationModule)
         )]
     [DependsOn(typeof(AbpIdentityApplicationModule))]
     public class IdentityApplicationModule : AbpModule

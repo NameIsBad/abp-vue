@@ -11,6 +11,8 @@ export default {
 
   inputText: 'Please enter',
   chooseText: 'Please choose',
+  operationSuccess: 'Operation Success',
+  operationFail: 'Operation Fail',
 
   redo: 'Refresh',
   back: 'Back',

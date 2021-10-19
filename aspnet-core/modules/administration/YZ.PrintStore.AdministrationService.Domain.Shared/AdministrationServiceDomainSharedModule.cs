@@ -1,4 +1,5 @@
-﻿using Volo.Abp.AuditLogging;
+﻿using EasyAbp.Abp.SettingUi;
+using Volo.Abp.AuditLogging;
 using Volo.Abp.AuditLogging.Localization;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Localization;
@@ -16,7 +17,8 @@ namespace YZ.PrintStore.AdministrationService
         typeof(AbpFeatureManagementDomainSharedModule),
         typeof(AbpSettingManagementDomainSharedModule),
         typeof(AbpPermissionManagementDomainSharedModule),
-        typeof(AbpAuditLoggingDomainSharedModule)
+        typeof(AbpAuditLoggingDomainSharedModule),
+        typeof(AbpSettingUiDomainSharedModule)
         )]
     public class AdministrationServiceDomainSharedModule : AbpModule
     {

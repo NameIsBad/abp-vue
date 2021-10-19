@@ -12,4 +12,5 @@ export default {
   claimTypes: '声明类型',
   auditLogs: '审计日志',
   tenants: '租户',
+  setting: '设置',
 };

@@ -1,3 +1,4 @@
+using EasyAbp.Abp.SettingUi;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.Localization;
 using Volo.Abp.Localization;
@@ -12,7 +13,8 @@ namespace YZ.PrintStore.Identity
     [DependsOn(
         typeof(AbpValidationModule),
         typeof(AbpTenantManagementDomainSharedModule),
-        typeof(AbpIdentityDomainSharedModule)
+        typeof(AbpIdentityDomainSharedModule),
+        typeof(AbpSettingUiDomainSharedModule)
     )]
     public class IdentityDomainSharedModule : AbpModule
     {

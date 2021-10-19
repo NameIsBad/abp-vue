@@ -15,4 +15,5 @@ export default {
   claimTypes: 'Claim Types',
   auditLogs: 'Audit Logs',
   tenants: 'Tenants',
+  setting: 'Setting',
 };
