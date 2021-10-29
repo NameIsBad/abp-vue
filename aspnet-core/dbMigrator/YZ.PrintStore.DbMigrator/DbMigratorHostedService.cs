@@ -2,13 +2,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Volo.Abp;
-using YZ.PrintStore.Shared;
+using YZ.PrintStore.Shared.DbMigration;
 
 namespace YZ.PrintStore.DbMigrator
 {
@@ -38,9 +37,9 @@ namespace YZ.PrintStore.DbMigrator
                     .ServiceProvider
                     .GetRequiredService<IEnumerable<IDbMigrationService>>();
 
-                foreach (var migration in migrations.OrderBy(t=>t.Sort))
+                foreach (var migration in migrations.OrderBy(t => t.Sort))
                 {
-                    await migration.MigrateAsync(); 
+                    await migration.MigrateAsync();
                 }
 
                 application.Shutdown();

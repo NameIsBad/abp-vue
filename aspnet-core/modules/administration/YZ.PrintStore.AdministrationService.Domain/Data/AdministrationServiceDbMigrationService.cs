@@ -39,24 +39,18 @@ namespace YZ.PrintStore.AdministrationService.Data
                 return;
             }
 
-            Logger.LogInformation("Started database migrations...");
+            Logger.LogInformation($"Started database [{ProjectFloderName}] migrations...");
 
             await MigrateDatabaseSchemaAsync();
             await SeedDataAsync();
 
-            Logger.LogInformation($"Successfully completed host database migrations.");
-
-            await MigrateDatabaseSchemaAsync();
-            await SeedDataAsync();
-
-            Logger.LogInformation("Successfully completed all database migrations.");
-            Logger.LogInformation("You can safely end this process...");
+            Logger.LogInformation($"Successfully completed [{ProjectFloderName}] database migrations.");
         }
 
         private async Task MigrateDatabaseSchemaAsync()
         {
             Logger.LogInformation(
-                $"Migrating schema for host database...");
+                $"Migrating schema for [{ProjectFloderName}] database...");
 
             foreach (var migrator in _dbSchemaMigrators)
             {
@@ -66,7 +60,7 @@ namespace YZ.PrintStore.AdministrationService.Data
 
         private async Task SeedDataAsync()
         {
-            Logger.LogInformation($"Executing host database seed...");
+            Logger.LogInformation($"Executing [{ProjectFloderName}] database seed...");
         }
     }
 }

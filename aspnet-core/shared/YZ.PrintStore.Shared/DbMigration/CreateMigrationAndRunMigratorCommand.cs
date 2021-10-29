@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace YZ.PrintStore.Shared
+namespace YZ.PrintStore.Shared.DbMigration
 {
     internal class CreateMigrationAndRunMigratorCommand
     {
@@ -19,17 +19,11 @@ namespace YZ.PrintStore.Shared
                 InstallDotnetEfTool();
             }
 
-            var tenantDbContextName = FindTenantDbContextName(dbMigrationsFolder);
-            var dbContextName = tenantDbContextName != null ?
-                FindDbContextName(dbMigrationsFolder)
-                : null;
+            var dbContextName = FindDbContextName(dbMigrationsFolder);
 
             var migrationOutput = AddMigrationAndGetOutput(dbMigrationsFolder, projectName, dbContextName, "Migrations");
-            var tenantMigrationOutput = tenantDbContextName != null ?
-                AddMigrationAndGetOutput(dbMigrationsFolder, projectName, tenantDbContextName, "TenantMigrations")
-                : null;
 
-            if (CheckMigrationOutput(migrationOutput) && CheckMigrationOutput(tenantMigrationOutput))
+            if (CheckMigrationOutput(migrationOutput))
             {
                 // Migration added successfully
                 //CmdHelper.RunCmd("cd \"" + Path.GetDirectoryName(dbMigratorProjectPath) + "\" && dotnet run");
@@ -39,35 +33,19 @@ namespace YZ.PrintStore.Shared
                 var exceptionMsg = "Migrations failed! A migration command didn't run successfully:" +
                                    Environment.NewLine +
                                    Environment.NewLine + migrationOutput +
-                                   Environment.NewLine +
-                                   Environment.NewLine + tenantMigrationOutput;
+                                   Environment.NewLine;
 
                 Console.WriteLine(exceptionMsg);
                 throw new Exception(exceptionMsg);
             }
         }
 
-        private string FindTenantDbContextName(string dbMigrationsFolder)
-        {
-            var tenantDbContext = Directory.GetFiles(dbMigrationsFolder, "*TenantMigrationsDbContext.cs", SearchOption.AllDirectories)
-                                      .FirstOrDefault() ??
-                                  Directory.GetFiles(dbMigrationsFolder, "*TenantDbContext.cs", SearchOption.AllDirectories)
-                                      .FirstOrDefault();
-
-            if (tenantDbContext == null)
-            {
-                return null;
-            }
-
-            return Path.GetFileName(tenantDbContext).RemovePostFix(".cs");
-        }
-
         private string FindDbContextName(string dbMigrationsFolder)
         {
             var dbContext = Directory.GetFiles(dbMigrationsFolder, "*MigrationsDbContext.cs", SearchOption.AllDirectories)
-                                .FirstOrDefault(fp => !fp.EndsWith("TenantMigrationsDbContext.cs")) ??
+                                .FirstOrDefault(fp => fp.EndsWith("MigrationsDbContext.cs")) ??
                             Directory.GetFiles(dbMigrationsFolder, "*DbContext.cs", SearchOption.AllDirectories)
-                                .FirstOrDefault(fp => !fp.EndsWith("TenantDbContext.cs"));
+                                .FirstOrDefault(fp => fp.EndsWith("DbContext.cs"));
 
             if (dbContext == null)
             {
@@ -84,7 +62,7 @@ namespace YZ.PrintStore.Shared
                 : $"--context {dbContext}";
 
             var addMigrationCmd = $"cd \"{dbMigrationsFolder}\" && " +
-                                  $"dotnet ef migrations add Initial{projectName.Substring(0,1).ToUpper()}{projectName[1..]} --output-dir {outputDirectory} {dbContextOption}";
+                                  $"dotnet ef migrations add Initial{projectName.Substring(0, 1).ToUpper()}{projectName[1..]} --output-dir {outputDirectory} {dbContextOption}";
 
             return CmdHelper.RunCmdAndGetOutput(addMigrationCmd);
         }

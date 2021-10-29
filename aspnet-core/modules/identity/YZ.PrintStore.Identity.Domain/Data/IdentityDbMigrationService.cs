@@ -1,11 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Volo.Abp.Data;
 using Volo.Abp.Identity;
@@ -50,12 +46,12 @@ namespace YZ.PrintStore.Identity.Data
                 return;
             }
 
-            Logger.LogInformation("Started database migrations...");
+            Logger.LogInformation($"Started database [{ProjectFloderName}] migrations...");
 
             await MigrateDatabaseSchemaAsync();
             await SeedDataAsync();
 
-            Logger.LogInformation($"Successfully completed host database migrations.");
+            Logger.LogInformation($"Successfully completed [{ProjectFloderName}] database migrations.");
 
             var tenants = await _tenantRepository.GetListAsync(includeDetails: true);
 
@@ -84,8 +80,7 @@ namespace YZ.PrintStore.Identity.Data
                 Logger.LogInformation($"Successfully completed {tenant.Name} tenant database migrations.");
             }
 
-            Logger.LogInformation("Successfully completed all database migrations.");
-            Logger.LogInformation("You can safely end this process...");
+            Logger.LogInformation($"Successfully completed [{ProjectFloderName}] database migrations.");
         }
 
         private async Task MigrateDatabaseSchemaAsync(Tenant tenant = null)

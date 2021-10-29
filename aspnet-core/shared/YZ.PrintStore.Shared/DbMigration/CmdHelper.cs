@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using Volo.Abp;
 
-namespace YZ.PrintStore.Shared
+namespace YZ.PrintStore.Shared.DbMigration
 {
     internal static class CmdHelper
     {
