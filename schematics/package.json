@@ -1,0 +1,34 @@
+{
+  "name": "ks-schematics",
+  "version": "5.1.2",
+  "description": "Schematics that works with ABP Backend",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "~11.0.2",
+    "@angular-devkit/schematics": "~11.0.2",
+    "got": "^11.5.2",
+    "jsonc-parser": "^2.3.0",
+    "should-quote": "^1.0.0",
+    "typescript": "~3.9.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/schematics-cli": "^13.2.3",
+    "@schematics/angular": "~11.0.2",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^12.11.1",
+    "jest": "^26.0.0",
+    "jest-preset-angular": "^8.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

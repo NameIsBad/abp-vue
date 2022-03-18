@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AutoMapper" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.Ddd.Application" Version="5.1.4" />
+        <PackageReference Include="Snowflake.Core" Version="2.0.0" />
+    </ItemGroup>
+
+</Project>

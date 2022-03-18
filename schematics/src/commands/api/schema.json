@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsAbpGenerateAPI",
+  "title": "ABP Generate API Schema",
+  "type": "object",
+  "properties": {
+    "module": {
+      "description": "Backend module name",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "请输入模块名称. (default: \"app\")"
+    },
+    "sourceUrl": {
+      "description": "服务地址",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": "服务地址(http://localhost:8086)"
+    },
+    "rootNamespace": {
+      "description": "根命名空间名称",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 2
+      },
+      "x-prompt": "根命名空间. (default: \"\")"
+    }
+  },
+  "required": []
+}
