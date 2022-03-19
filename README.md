@@ -30,7 +30,7 @@ yarn
 yarn serve
 ```
 
-## ![](./docs/images/vben-admin.png)
+## ![](https://raw.githubusercontent.com/NameIsBad/abp-vue/main/docs/images/vben-admin.png)
 
 ## 代码生成器
 
@@ -42,4 +42,4 @@ yarn serve
 
 生产结构如下：
 
-![](./docs/images/schematics.png)
+![](https://raw.githubusercontent.com/NameIsBad/abp-vue/main/docs/images/schematics.png)
