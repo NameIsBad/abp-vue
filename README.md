@@ -10,9 +10,9 @@
 
 运行
 
-1. 修改**DbMigrator**和 **HttpApi.Host**项目的 appsettings.json 的数据库和 redis 连接字符串
-2. 运行**DbMigrator**项目(初始化 mysql 数据库)
-3. 运行**HttpApi.Host**
+1. 修改**Zoey.Admin.HttpApi.Host**的**appsettings.json**数据库连接字符串
+2. 初始化数据库，在**Zoey.Admin.HttpApi.Host**项目下执行```dotnet ef database update```命令
+3. 运行**Zoey.Admin.HttpApi.Host**
 
 ## 前端
 
@@ -21,9 +21,25 @@
 运行
 
 ```
+cd ./vben-admin
+
 # 安装依赖
 yarn
 
 # 运行项目
-yarn dev
+yarn serve
 ```
+
+## ![](./docs/images/vben-admin.png)
+
+## 代码生成器
+
+修改官方代码生成器以支持vue3 + TypeScript
+
+1. 运行schematics/build-all.ps1 （运行前请确保后端服务已启动）
+
+2. 把generate-code/proxy的文件拷到vben-admin的src/api/proxy中
+
+生产结构如下：
+
+![](./docs/images/schematics.png)
