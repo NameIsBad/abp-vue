@@ -40,6 +40,6 @@ yarn serve
 
 2. 把generate-code/proxy的文件拷到vben-admin的src/api/proxy中
 
-生产结构如下：
+生成的结构如下：
 
 ![](https://raw.githubusercontent.com/NameIsBad/abp-vue/main/docs/images/schematics.png)
