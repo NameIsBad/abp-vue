@@ -1,6 +1,9 @@
 import { RequestOptions } from '/#/axios';
 import { defHttp } from '/@/utils/http/axios';
-import type { ApplicationApiDescriptionModel, ApplicationApiDescriptionModelRequestDto } from '../http/modeling/models';
+import type {
+  ApplicationApiDescriptionModel,
+  ApplicationApiDescriptionModelRequestDto,
+} from '../http/modeling/models';
 
 export class AbpApiDefinitionService {
   apiName = 'abp';

@@ -40,3 +40,4 @@ export function getPermCode() {
 }
 
 export function doLogout() {}
+export function testRetry() {}

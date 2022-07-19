@@ -1,4 +1,3 @@
-
 export interface EntityExtensionDto {
   properties: Record<string, ExtensionPropertyDto>;
   configuration: Record<string, object>;

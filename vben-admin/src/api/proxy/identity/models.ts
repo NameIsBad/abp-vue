@@ -1,4 +1,11 @@
-import type { EntityDto, ExtensibleAuditedEntityDto, ExtensibleEntityDto, ExtensibleFullAuditedEntityDto, ExtensibleObject, PagedAndSortedResultRequestDto } from '/@/utils/models/dtos';
+import type {
+  EntityDto,
+  ExtensibleAuditedEntityDto,
+  ExtensibleEntityDto,
+  ExtensibleFullAuditedEntityDto,
+  ExtensibleObject,
+  PagedAndSortedResultRequestDto,
+} from '/@/utils/models/dtos';
 import type { IdentityClaimValueType } from './identity-claim-value-type.enum';
 
 export interface ChangePasswordDto {
@@ -46,8 +53,7 @@ export interface IdentityClaimTypeGetByPagedDto extends PagedAndSortedResultRequ
   filter?: string;
 }
 
-export interface IdentityClaimTypeUpdateDto extends IdentityClaimTypeCreateOrUpdateBaseDto {
-}
+export type IdentityClaimTypeUpdateDto = IdentityClaimTypeCreateOrUpdateBaseDto;
 
 export interface IdentityRoleAddOrRemoveOrganizationUnitDto {
   organizationUnitIds: string[];
@@ -58,15 +64,13 @@ export interface IdentityRoleClaimCreateDto {
   claimValue: string;
 }
 
-export interface IdentityRoleClaimDeleteDto extends IdentityRoleClaimCreateDto {
-}
+export type IdentityRoleClaimDeleteDto = IdentityRoleClaimCreateDto;
 
 export interface IdentityRoleClaimUpdateDto extends IdentityRoleClaimCreateDto {
   newClaimValue: string;
 }
 
-export interface IdentityRoleCreateDto extends IdentityRoleCreateOrUpdateDtoBase {
-}
+export type IdentityRoleCreateDto = IdentityRoleCreateOrUpdateDtoBase;
 
 export interface IdentityRoleCreateOrUpdateDtoBase extends ExtensibleObject {
   name: string;
@@ -91,8 +95,7 @@ export interface IdentityUserClaimCreateDto {
   claimValue: string;
 }
 
-export interface IdentityUserClaimDeleteDto extends IdentityUserClaimCreateDto {
-}
+export type IdentityUserClaimDeleteDto = IdentityUserClaimCreateDto;
 
 export interface IdentityUserClaimUpdateDto extends IdentityUserClaimCreateDto {
   newClaimValue: string;

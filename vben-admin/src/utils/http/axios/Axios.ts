@@ -61,7 +61,7 @@ export class VAxios {
   }
 
   /**
-   * @description: Interceptor configuration
+   * @description: Interceptor configuration 拦截器配置
    */
   private setupInterceptors() {
     const transform = this.getTransform();
@@ -111,7 +111,10 @@ export class VAxios {
     // Response result interceptor error capture
     responseInterceptorsCatch &&
       isFunction(responseInterceptorsCatch) &&
-      this.axiosInstance.interceptors.response.use(undefined, responseInterceptorsCatch);
+      this.axiosInstance.interceptors.response.use(undefined, (error) => {
+        // @ts-ignore
+        return responseInterceptorsCatch(this.axiosInstance, error);
+      });
   }
 
   /**
@@ -157,19 +160,28 @@ export class VAxios {
   supportFormData(config: AxiosRequestConfig) {
     const headers = config.headers || this.options.headers;
     const contentType = headers?.['Content-Type'] || headers?.['content-type'];
-
     if (
-      contentType !== ContentTypeEnum.FORM_URLENCODED ||
-      !Reflect.has(config, 'data') ||
+      contentType === ContentTypeEnum.FORM_URLENCODED &&
+      Reflect.has(config, 'data') &&
+      config.method?.toUpperCase() === RequestEnum.POST
+    ) {
+      return {
+        ...config,
+        data: qs.stringify(config.data, { arrayFormat: 'brackets' }),
+      };
+    }
+    if (
+      contentType === ContentTypeEnum.JSON &&
+      Reflect.has(config, 'params') &&
       config.method?.toUpperCase() === RequestEnum.GET
     ) {
-      return config;
+      return {
+        ...config,
+        url: `${config.url}?${qs.stringify(config.params, { arrayFormat: 'repeat' })}`,
+        params: null,
+      };
     }
-
-    return {
-      ...config,
-      data: qs.stringify(config.data, { arrayFormat: 'brackets' }),
-    };
+    return config;
   }
 
   get<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {

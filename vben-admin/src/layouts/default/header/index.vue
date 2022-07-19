@@ -55,7 +55,7 @@
   </Header>
 </template>
 <script lang="ts">
-  import { defineComponent, unref, computed, onMounted } from 'vue';
+  import { defineComponent, unref, computed } from 'vue';
 
   import { propTypes } from '/@/utils/propTypes';
 
@@ -80,7 +80,6 @@
 
   import { createAsyncComponent } from '/@/utils/factory/createAsyncComponent';
   import { useLocale } from '/@/locales/useLocale';
-  import { useSignalR } from '/@/hooks/web/useSignalR';
 
   export default defineComponent({
     name: 'LayoutHeader',
@@ -170,10 +169,7 @@
       const getMenuMode = computed(() => {
         return unref(getSplit) ? MenuModeEnum.HORIZONTAL : null;
       });
-      // const { startConnect } = useSignalR();
-      // onMounted(() => {
-      //   startConnect();
-      // });
+
       return {
         prefixCls,
         getHeaderClass,

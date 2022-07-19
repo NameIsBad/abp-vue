@@ -1,8 +1,4 @@
-import type {
-  ChangePasswordInput,
-  ProfileDto,
-  UpdateProfileDto,
-} from './models';
+import type { ChangePasswordInput, ProfileDto, UpdateProfileDto } from './models';
 import { RequestOptions } from '/#/axios';
 import { defHttp } from '/@/utils/http/axios';
 

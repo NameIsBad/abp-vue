@@ -1,6 +1,4 @@
-// @ts-check
-const { defineConfig } = require('eslint-define-config');
-module.exports = defineConfig({
+module.exports = {
   root: true,
   env: {
     browser: true,
@@ -20,20 +18,15 @@ module.exports = defineConfig({
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
     'plugin:prettier/recommended',
-    'plugin:jest/recommended',
   ],
   rules: {
-    '@typescript-eslint/no-namespace': 'off',
-    '@typescript-eslint/no-empty-function': ['warn'],
-    '@typescript-eslint/no-empty-interface': ['warn'],
     'vue/script-setup-uses-vars': 'error',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
-    // '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     'vue/custom-event-name-casing': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
@@ -80,4 +73,4 @@ module.exports = defineConfig({
     ],
     'vue/multi-word-component-names': 'off',
   },
-});
+};

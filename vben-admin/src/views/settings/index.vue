@@ -20,7 +20,7 @@
                   <div v-if="setting.properties.Type.toString() === 'checkbox'">
                     <Checkbox
                       :checked="!(setting.value == 'false')"
-                      @update:checked="(val) => (setting.value = val)"
+                      @update:checked="(val) => (setting.value = val.toString())"
                     >
                       {{ setting.description }}
                     </Checkbox>
@@ -59,7 +59,7 @@
 
 <script lang="ts">
   import { defineComponent, reactive, toRefs, onMounted } from 'vue';
-  import { Checkbox, Tabs, Form, Input, Select, Row, Col, InputNumber } from 'ant-design-vue';
+  import { Checkbox, Tabs, Form, Input, Select, InputNumber } from 'ant-design-vue';
   import { CollapseContainer } from '/@/components/Container/index';
   import { ScrollContainer } from '/@/components/Container/index';
   import { SettingService } from '/@/api/proxy/identity';
@@ -69,6 +69,7 @@
   import { message } from 'ant-design-vue';
   export default defineComponent({
     components: {
+      // eslint-disable-next-line vue/no-unused-components
       ScrollContainer,
       CollapseContainer,
       Tabs,
@@ -80,9 +81,8 @@
       Input,
       Select,
       SelectOption: Select.Option,
+      // eslint-disable-next-line vue/no-unused-components
       Password: Input.Password,
-      Row,
-      Col,
       InputNumber,
     },
     setup() {

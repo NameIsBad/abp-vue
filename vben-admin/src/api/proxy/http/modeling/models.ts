@@ -1,4 +1,3 @@
-
 export interface ActionApiDescriptionModel {
   uniqueName?: string;
   name?: string;
@@ -24,6 +23,8 @@ export interface ApplicationApiDescriptionModelRequestDto {
 export interface ControllerApiDescriptionModel {
   controllerName?: string;
   controllerGroupName?: string;
+  isRemoteService: boolean;
+  apiVersion?: string;
   type?: string;
   interfaces: ControllerInterfaceApiDescriptionModel[];
   actions: Record<string, ActionApiDescriptionModel>;

@@ -64,6 +64,7 @@
           width: `${width}px`,
           left: `${left + 1}px`,
           top: `${top + 1}px`,
+          zIndex: 9999,
         };
       });
 
@@ -88,7 +89,8 @@
       }
 
       function renderMenuItem(items: ContextMenuItem[]) {
-        return items.map((item) => {
+        const visibleItems = items.filter((item) => !item.hidden);
+        return visibleItems.map((item) => {
           const { disabled, label, children, divider = false } = item;
 
           const contentProps = {

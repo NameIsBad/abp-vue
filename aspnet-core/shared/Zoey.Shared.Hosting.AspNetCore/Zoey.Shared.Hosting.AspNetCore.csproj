@@ -5,9 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.2" />
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="6.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.3" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0" />
         <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="$(AbpVersion)" />
         <PackageReference Include="Volo.Abp.Swashbuckle" Version="$(AbpVersion)" />
     </ItemGroup>

@@ -18,7 +18,12 @@ export class PermissionsService {
       options,
     );
 
-  update = (providerName: string, providerKey: string, input: UpdatePermissionsDto, options?: RequestOptions) =>
+  update = (
+    providerName: string,
+    providerKey: string,
+    input: UpdatePermissionsDto,
+    options?: RequestOptions,
+  ) =>
     defHttp.request<void>(
       {
         method: 'PUT',

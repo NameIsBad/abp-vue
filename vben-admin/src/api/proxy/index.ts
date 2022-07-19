@@ -15,4 +15,22 @@ import * as TenantManagement from './tenant-management';
 import * as Users from './users';
 import * as Validation from './validation';
 import * as Volo from './volo';
-export { Account, ApiExploring, ApplicationConfigurations, Auditing, Authentication, FeatureManagement, Http, Identity, Localization, MultiTenancy, PermissionManagement, SettingManagement, SettingUi, TenantManagement, Users, Validation, Volo };
+export {
+  Account,
+  ApiExploring,
+  ApplicationConfigurations,
+  Auditing,
+  Authentication,
+  FeatureManagement,
+  Http,
+  Identity,
+  Localization,
+  MultiTenancy,
+  PermissionManagement,
+  SettingManagement,
+  SettingUi,
+  TenantManagement,
+  Users,
+  Validation,
+  Volo,
+};

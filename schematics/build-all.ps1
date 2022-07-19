@@ -15,10 +15,10 @@ npm run build
 
 foreach ($service in $abp_services) {
     Write-Host ("Build " + $service + " ...")
-    schematics .:proxy-add --sourceUrl $api_url --rootNamespace $namespace --dry-run=false --module $service
+    schematics .:proxy-add --source-url $api_url --root-namespace $namespace --dry-run=false --module $service
 }
 
 foreach ($service in $custom_services) {
     Write-Host ("Build " + $service + " ...")
-    schematics .:proxy-add --sourceUrl $api_url --rootNamespace $namespace --dry-run=false --module $service
+    schematics .:proxy-add --source-url $api_url --root-namespace $namespace --dry-run=false --module $service
 }

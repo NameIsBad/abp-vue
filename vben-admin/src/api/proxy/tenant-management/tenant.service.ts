@@ -1,9 +1,4 @@
-import type {
-  GetTenantsInput,
-  TenantCreateDto,
-  TenantDto,
-  TenantUpdateDto,
-} from './models';
+import type { GetTenantsInput, TenantCreateDto, TenantDto, TenantUpdateDto } from './models';
 import { RequestOptions } from '/#/axios';
 import { defHttp } from '/@/utils/http/axios';
 import type { PagedResultDto } from '/@/utils/models/dtos';
@@ -83,7 +78,11 @@ export class TenantService {
       options,
     );
 
-  updateDefaultConnectionString = (id: string, defaultConnectionString: string, options?: RequestOptions) =>
+  updateDefaultConnectionString = (
+    id: string,
+    defaultConnectionString: string,
+    options?: RequestOptions,
+  ) =>
     defHttp.request<void>(
       {
         method: 'PUT',

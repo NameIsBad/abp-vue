@@ -18,7 +18,12 @@ export class FeaturesService {
       options,
     );
 
-  update = (providerName: string, providerKey: string, input: UpdateFeaturesDto, options?: RequestOptions) =>
+  update = (
+    providerName: string,
+    providerKey: string,
+    input: UpdateFeaturesDto,
+    options?: RequestOptions,
+  ) =>
     defHttp.request<void>(
       {
         method: 'PUT',

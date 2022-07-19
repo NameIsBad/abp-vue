@@ -153,7 +153,11 @@ export class OrganizationUnitService {
       options,
     );
 
-  getUnaddedRoles = (id: string, input: OrganizationUnitGetUnaddedRoleByPagedDto, options?: RequestOptions) =>
+  getUnaddedRoles = (
+    id: string,
+    input: OrganizationUnitGetUnaddedRoleByPagedDto,
+    options?: RequestOptions,
+  ) =>
     defHttp.request<PagedResultDto<IdentityRoleDto>>(
       {
         method: 'GET',
@@ -168,7 +172,11 @@ export class OrganizationUnitService {
       options,
     );
 
-  getUnaddedUsers = (id: string, input: OrganizationUnitGetUnaddedUserByPagedDto, options?: RequestOptions) =>
+  getUnaddedUsers = (
+    id: string,
+    input: OrganizationUnitGetUnaddedUserByPagedDto,
+    options?: RequestOptions,
+  ) =>
     defHttp.request<PagedResultDto<IdentityUserDto>>(
       {
         method: 'GET',

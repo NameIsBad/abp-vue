@@ -4,7 +4,7 @@
     :draggable="true"
     :click-row-to-expand="false"
     :tree-data="organizationUnitTree"
-    :replace-fields="{
+    :fieldNames="{
       title: 'displayName',
       key: 'id',
     }"

@@ -1,4 +1,8 @@
-import type { ExtensibleEntityDto, ExtensibleObject, PagedAndSortedResultRequestDto } from '/@/utils/models/dtos';
+import type {
+  ExtensibleEntityDto,
+  ExtensibleObject,
+  PagedAndSortedResultRequestDto,
+} from '/@/utils/models/dtos';
 
 export interface GetTenantsInput extends PagedAndSortedResultRequestDto {
   filter?: string;

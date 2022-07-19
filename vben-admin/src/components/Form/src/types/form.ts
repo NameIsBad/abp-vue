@@ -49,6 +49,7 @@ export type RegisterFn = (formInstance: FormActionType) => void;
 export type UseFormReturnType = [RegisterFn, FormActionType];
 
 export interface FormProps {
+  name?: string;
   layout?: 'vertical' | 'inline' | 'horizontal';
   // Form value
   model?: Recordable;
@@ -219,8 +220,4 @@ export interface HelpComponentProps {
   absolute: boolean;
   // Positioning
   position: any;
-}
-
-export interface TabFormSchema extends FormSchema {
-  tab: string;
 }

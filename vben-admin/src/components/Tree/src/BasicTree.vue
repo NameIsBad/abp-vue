@@ -1,6 +1,13 @@
 <script lang="tsx">
   import type { CSSProperties } from 'vue';
-  import type { FieldNames, TreeState, TreeItem, KeyType, CheckKeys, TreeActionType } from './tree';
+  import type {
+    FieldNames,
+    TreeState,
+    TreeItem,
+    KeyType,
+    CheckKeys,
+    TreeActionType,
+  } from './types/tree';
 
   import {
     defineComponent,
@@ -13,18 +20,18 @@
     watch,
     onMounted,
   } from 'vue';
-  import TreeHeader from './TreeHeader.vue';
-  import { Tree, Empty } from 'ant-design-vue';
+  import TreeHeader from './components/TreeHeader.vue';
+  import { Tree, Spin, Empty } from 'ant-design-vue';
   import { TreeIcon } from './TreeIcon';
   import { ScrollContainer } from '/@/components/Container';
   import { omit, get, difference, cloneDeep } from 'lodash-es';
   import { isArray, isBoolean, isEmpty, isFunction } from '/@/utils/is';
   import { extendSlots, getSlot } from '/@/utils/helper/tsxHelper';
   import { filter, treeToList, eachTree } from '/@/utils/helper/treeHelper';
-  import { useTree } from './useTree';
+  import { useTree } from './hooks/useTree';
   import { useContextMenu } from '/@/hooks/web/useContextMenu';
   import { CreateContextOptions } from '/@/components/ContextMenu';
-  import { treeEmits, treeProps } from './tree';
+  import { treeEmits, treeProps } from './types/tree';
   import { createBEM } from '/@/utils/bem';
 
   export default defineComponent({
@@ -71,7 +78,7 @@
           selectedKeys: state.selectedKeys,
           checkedKeys: state.checkedKeys,
           checkStrictly: state.checkStrictly,
-          filedNames: unref(getFieldNames),
+          fieldNames: unref(getFieldNames),
           'onUpdate:expandedKeys': (v: KeyType[]) => {
             state.expandedKeys = v;
             emit('update:expandedKeys', v);
@@ -119,6 +126,7 @@
         getAllKeys,
         getChildrenKeys,
         getEnabledKeys,
+        getSelectedNode,
       } = useTree(treeDataRef, getFieldNames);
 
       function getIcon(params: Recordable, icon?: string) {
@@ -145,6 +153,7 @@
           contextMenuOptions.items = menuList;
         }
         if (!contextMenuOptions.items?.length) return;
+        contextMenuOptions.items = contextMenuOptions.items.filter((item) => !item.hidden);
         createContextMenu(contextMenuOptions);
       }
 
@@ -293,6 +302,7 @@
         () => {
           state.checkedKeys = toRaw(props.value || []);
         },
+        { immediate: true },
       );
 
       watch(
@@ -319,6 +329,7 @@
         insertNodesByKey,
         deleteNodeByKey,
         updateNodeByKey,
+        getSelectedNode,
         checkAll,
         expandAll,
         filterByLevel: (level: number) => {
@@ -381,7 +392,7 @@
           ) : (
             title
           );
-          item.title = (
+          item[titleField] = (
             <span
               class={`${bem('title')} pl-2`}
               onClick={handleClickNode.bind(null, item[keyField], item[childrenField])}
@@ -426,10 +437,16 @@
                 {extendSlots(slots)}
               </TreeHeader>
             )}
-            <ScrollContainer style={scrollStyle} v-show={!unref(getNotFound)}>
-              <Tree {...unref(getBindValues)} showIcon={false} treeData={treeData.value} />
-            </ScrollContainer>
-            <Empty v-show={unref(getNotFound)} image={Empty.PRESENTED_IMAGE_SIMPLE} class="!mt-4" />
+            <Spin spinning={unref(props.loading)} tip="加载中...">
+              <ScrollContainer style={scrollStyle} v-show={!unref(getNotFound)}>
+                <Tree {...unref(getBindValues)} showIcon={false} treeData={treeData.value} />
+              </ScrollContainer>
+              <Empty
+                v-show={unref(getNotFound)}
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
+                class="!mt-4"
+              />
+            </Spin>
           </div>
         );
       };

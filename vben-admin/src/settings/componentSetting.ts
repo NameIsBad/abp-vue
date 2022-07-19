@@ -51,6 +51,7 @@ export default {
       return data;
     },
     defaultBeforeFetchFn: (request: any) => {
+      console.log(request);
       formatPagedRequest(request);
     },
     defaultSize: null,

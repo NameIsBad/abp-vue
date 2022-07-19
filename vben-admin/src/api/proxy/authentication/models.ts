@@ -1,4 +1,3 @@
-
 export interface AuthenticateResultModel {
   accessToken?: string;
   expireIn: number;

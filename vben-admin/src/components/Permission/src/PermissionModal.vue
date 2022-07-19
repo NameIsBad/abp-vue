@@ -38,7 +38,7 @@
                 :selectable="false"
                 :disabled="permissionTreeDisabled"
                 :treeData="permission.children"
-                :replaceFields="{
+                :fieldNames="{
                   key: 'name',
                   title: 'displayName',
                   children: 'children',
@@ -104,6 +104,7 @@
       } = usePermissions({
         getPropsRef: model,
       });
+      console.log(permissionTree.value);
       const [registerModal, { closeModal, setModalProps }] = useModalInner((val) => {
         model.value = val;
       });

@@ -1,8 +1,4 @@
-import type {
-  RegisterDto,
-  ResetPasswordDto,
-  SendPasswordResetCodeDto,
-} from './models';
+import type { RegisterDto, ResetPasswordDto, SendPasswordResetCodeDto } from './models';
 import { RequestOptions } from '/#/axios';
 import { defHttp } from '/@/utils/http/axios';
 import type { IdentityUserDto } from '../identity/models';

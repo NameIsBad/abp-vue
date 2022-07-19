@@ -1,17 +1,25 @@
 # ABP Suite Schematics
 
+所生成的代码不仅使用 `Vben`，同样适用 `Element` 等 `VUE` 框架
+
 ## 安装 Schematics cli
 
 ```
-npm install -g @angular-devkit/schematics-cli
+npm install -g @angular-devkit/schematics-cli 或
 yarn add -g @angular-devkit/schematics-cli
+```
+
+## 安装依赖包
+```
+npm install 或
+yarn
 ```
 
 ## 本地运行
 
 ```
 npm run build
-schematics .:proxy-add --sourceUrl 'http://localhost:8086' --rootNamespace 'KS|KS.Admin|Volo.Abp|Volo.Abp.AspNetCore.Mvc|Pages.Abp' --dry-run=false --module 'questions'
+schematics .:proxy-add --sourceUrl 'http://localhost:8086' --rootNamespace 'Zoey|Zoey.Admin|Volo.Abp|Volo.Abp.AspNetCore.Mvc|Pages.Abp' --dry-run=false --module 'account'
 ```
 
 ## 远程运行

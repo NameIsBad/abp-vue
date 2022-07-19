@@ -1,4 +1,8 @@
-import type { EntityDto, ExtensibleEntityDto, PagedAndSortedResultRequestDto } from '/@/utils/models/dtos';
+import type {
+  EntityDto,
+  ExtensibleEntityDto,
+  PagedAndSortedResultRequestDto,
+} from '/@/utils/models/dtos';
 import type { EntityChangeType } from '../entity-change-type.enum';
 
 export interface AuditLogActionDto extends ExtensibleEntityDto<string> {

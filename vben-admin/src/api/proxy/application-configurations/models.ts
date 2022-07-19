@@ -14,6 +14,7 @@ export interface ApplicationConfigurationDto {
   setting: ApplicationSettingConfigurationDto;
   currentUser: CurrentUserDto;
   features: ApplicationFeatureConfigurationDto;
+  globalFeatures: ApplicationGlobalFeatureConfigurationDto;
   multiTenancy: MultiTenancyInfoDto;
   currentTenant: CurrentTenantDto;
   timing: TimingDto;
@@ -23,6 +24,10 @@ export interface ApplicationConfigurationDto {
 
 export interface ApplicationFeatureConfigurationDto {
   values: Record<string, string>;
+}
+
+export interface ApplicationGlobalFeatureConfigurationDto {
+  enabledFeatures: string[];
 }
 
 export interface ApplicationLocalizationConfigurationDto {

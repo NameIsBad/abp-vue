@@ -1,4 +1,3 @@
-
 export interface SettingGroup {
   groupName?: string;
   groupDisplayName?: string;

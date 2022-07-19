@@ -6,6 +6,7 @@ export function generatePermissionTree(permissionGroups: PermissionGroupDto[]) {
   const trees: PermissionTree[] = [];
   permissionGroups.forEach((g) => {
     const tree: PermissionTree = {
+      key: g.name ?? '',
       name: g.name,
       displayName: g.displayName,
       disabled: false,

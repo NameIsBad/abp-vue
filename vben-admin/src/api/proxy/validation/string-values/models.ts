@@ -1,4 +1,3 @@
-
 export interface IStringValueType {
   name?: string;
   item: object;

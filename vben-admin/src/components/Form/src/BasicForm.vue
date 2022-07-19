@@ -62,12 +62,13 @@
 
   import { basicProps } from './props';
   import { useDesign } from '/@/hooks/web/useDesign';
+  import { cloneDeep } from 'lodash-es';
 
   export default defineComponent({
     name: 'BasicForm',
     components: { FormItem, Form, Row, FormAction },
     props: basicProps,
-    emits: ['advanced-change', 'reset', 'submit', 'register'],
+    emits: ['advanced-change', 'reset', 'submit', 'register', 'field-value-change'],
     setup(props, { emit, attrs }) {
       const formModel = reactive<Recordable>({});
       const modalFn = useModalContext();
@@ -132,9 +133,11 @@
           }
         }
         if (unref(getProps).showAdvancedButton) {
-          return schemas.filter((schema) => schema.component !== 'Divider') as FormSchema[];
+          return cloneDeep(
+            schemas.filter((schema) => schema.component !== 'Divider') as FormSchema[],
+          );
         } else {
-          return schemas as FormSchema[];
+          return cloneDeep(schemas as FormSchema[]);
         }
       });
 
@@ -244,6 +247,7 @@
         if (!validateTrigger || validateTrigger === 'change') {
           validateFields([key]).catch((_) => {});
         }
+        emit('field-value-change', key, value);
       }
 
       function handleEnterPress(e: KeyboardEvent) {

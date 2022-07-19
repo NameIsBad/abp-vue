@@ -9,7 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Volo.Abp.Validation" Version="$(AbpVersion)" />
 
-        <PackageReference Include="EasyAbp.Abp.SettingUi.Domain.Shared" Version="1.6.1" />
+        <PackageReference Include="EasyAbp.Abp.SettingUi.Domain.Shared" Version="$(EasyAbpVersion)" />
         <PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="$(AbpVersion)" />
         <PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="$(AbpVersion)" />
         <PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="$(AbpVersion)" />
@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.2" />
+        <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.7" />
     </ItemGroup>
 
     <ItemGroup>

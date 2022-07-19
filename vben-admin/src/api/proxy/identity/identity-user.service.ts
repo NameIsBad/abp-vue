@@ -171,7 +171,11 @@ export class IdentityUserService {
       options,
     );
 
-  setOrganizationUnits = (id: string, input: IdentityUserOrganizationUnitUpdateDto, options?: RequestOptions) =>
+  setOrganizationUnits = (
+    id: string,
+    input: IdentityUserOrganizationUnitUpdateDto,
+    options?: RequestOptions,
+  ) =>
     defHttp.request<void>(
       {
         method: 'PUT',

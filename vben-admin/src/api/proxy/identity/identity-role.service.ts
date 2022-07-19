@@ -119,7 +119,11 @@ export class IdentityRoleService {
       options,
     );
 
-  setOrganizationUnits = (id: string, input: IdentityRoleAddOrRemoveOrganizationUnitDto, options?: RequestOptions) =>
+  setOrganizationUnits = (
+    id: string,
+    input: IdentityRoleAddOrRemoveOrganizationUnitDto,
+    options?: RequestOptions,
+  ) =>
     defHttp.request<void>(
       {
         method: 'PUT',
