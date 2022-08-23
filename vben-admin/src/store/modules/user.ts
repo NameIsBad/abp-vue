@@ -154,9 +154,12 @@ export const useUserStore = defineStore({
           console.log('注销Token失败');
         }
       }
+      const permissionStore = usePermissionStore();
+      permissionStore.resetState();
       this.setToken(undefined);
       this.setSessionTimeout(false);
       this.setUserInfo(null);
+      this.setRoleList([]);
       goLogin && router.push(PageEnum.BASE_LOGIN);
     },
 
