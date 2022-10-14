@@ -19,9 +19,9 @@ export function loginApi(params: LoginParams, mode: ErrorMessageMode = 'modal') 
 /**
  * @description: getUserInfo
  */
-export function getUserInfo() {
+export async function getUserInfo() {
   const abpStore = useAbpStoreWithOut();
-  abpStore.initlizeAbpApplication();
+  await abpStore.initlizeAbpApplication();
   return abpStore.getApplication;
 }
 
@@ -39,5 +39,8 @@ export function getPermCode() {
   return authPermissions;
 }
 
-export function doLogout() {}
-export function testRetry() {}
+export function doLogout() {
+  const abpStore = useAbpStoreWithOut();
+  abpStore.resetSession();
+}
+export function testRetry() { }
