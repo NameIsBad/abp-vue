@@ -1,23 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <RootNamespace>Zoey.Admin</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Volo.Abp.Authorization" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="$(AbpVersion)" />
-        <PackageReference Include="EasyAbp.Abp.SettingUi.Application.Contracts" Version="$(EasyAbpVersion)" />
-        <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="$(AbpVersion)" />
+        <PackageReference Include="Volo.Abp.Authorization" />
+        <PackageReference Include="Volo.Abp.Account.Application.Contracts" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" />
+        <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" />
+        <PackageReference Include="EasyAbp.Abp.SettingUi.Application.Contracts" />
+        <PackageReference Include="Volo.Abp.Identity.Application.Contracts" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\shared\Zoey.Shared\Zoey.Shared.csproj" />
         <ProjectReference Include="..\..\Zoey.Domain.Shared\Zoey.Domain.Shared.csproj" />
     </ItemGroup>
 

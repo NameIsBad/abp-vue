@@ -28,6 +28,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Json.SystemTextJson;
 
 namespace Zoey.Admin;
 
@@ -55,7 +56,8 @@ public class AdminHttpApiHostModule : AbpModule
         ConfigureCors(context, configuration);
         ConfigureSwaggerServices(context, configuration);
         ConfigAntiForgery();
-        Configure<AbpJsonOptions>(options => options.DefaultDateTimeFormat = "yyyy-MM-dd HH:mm:ss");　　//对类型为DateTimeOffset生效
+        Configure<AbpJsonOptions>(options => options.OutputDateTimeFormat = "yyyy-MM-dd HH:mm:ss");　　//对类型为DateTimeOffset生效
+        context.Services.AddTransient<IJsonSerializer, AbpSystemTextJsonSerializer>();
     }
 
     private void ConfigureVirtualFileSystem(ServiceConfigurationContext context)
@@ -212,21 +214,6 @@ public class AdminHttpApiHostModule : AbpModule
         app.UseUnitOfWork();
         app.UseConfiguredEndpoints();
 
-#if DEBUG
-        //var dataSeeder = app.ApplicationServices.GetService<IDataSeeder>();
-        //await dataSeeder!.SeedAsync(new DataSeedContext()
-        //    .WithProperty(IdentityDataSeedContributor.AdminEmailPropertyName,
-        //        IdentityDataSeedContributor.AdminEmailDefaultValue)
-        //    .WithProperty(IdentityDataSeedContributor.AdminPasswordPropertyName,
-        //        IdentityDataSeedContributor.AdminPasswordDefaultValue)
-        //);
-        Volo.Abp.Threading.AsyncHelper.RunSync(async () =>
-        {
-            using var scope = context.ServiceProvider.CreateScope();
-            await scope.ServiceProvider
-                .GetRequiredService<IDataSeeder>()
-                .SeedAsync();
-        });
-#endif
+
     }
 }

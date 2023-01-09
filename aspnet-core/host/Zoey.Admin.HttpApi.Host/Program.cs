@@ -1,10 +1,10 @@
-﻿using Zoey.Shared.Hosting.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
 using System.Threading.Tasks;
+using Zoey.Shared.Hosting.AspNetCore;
 
 namespace Zoey.Admin;
 
@@ -19,7 +19,14 @@ public class Program
         try
         {
             Log.Information($"Starting {assemblyName}.");
-            await CreateHostBuilder(args).Build().RunAsync();
+            var builder = WebApplication.CreateBuilder(args);
+            builder.Host.AddAppSettingsSecretsJson()
+                .UseAutofac()
+                .UseSerilog();
+            await builder.AddApplicationAsync<AdminHttpApiHostModule>();
+            var app = builder.Build();
+            await app.InitializeApplicationAsync();
+            await app.RunAsync();
             return 0;
         }
         catch (Exception ex)
@@ -32,11 +39,4 @@ public class Program
             Log.CloseAndFlush();
         }
     }
-
-    internal static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration(build => { build.AddJsonFile("appsettings.secrets.json", optional: true); })
-            .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); })
-            .UseAutofac()
-            .UseSerilog();
 }

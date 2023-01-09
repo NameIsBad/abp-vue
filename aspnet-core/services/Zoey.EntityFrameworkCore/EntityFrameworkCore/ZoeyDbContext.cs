@@ -32,9 +32,13 @@ public class ZoeyDbContext : AbpDbContext<ZoeyDbContext>,
     #region Entities from the modules
 
     public virtual DbSet<Setting> Settings { get; }
+    public DbSet<FeatureGroupDefinitionRecord> FeatureGroups { get; }
+    public DbSet<FeatureDefinitionRecord> Features { get; }
     public virtual DbSet<FeatureValue> FeatureValues { get; }
     public virtual DbSet<AuditLog> AuditLogs { get; }
     public virtual DbSet<PermissionGrant> PermissionGrants { get; }
+    public virtual DbSet<PermissionGroupDefinitionRecord> PermissionGroups { get; }
+    public virtual DbSet<PermissionDefinitionRecord> Permissions { get; }
     public virtual DbSet<IdentityUser> Users { get; }
     public virtual DbSet<IdentityRole> Roles { get; }
     public virtual DbSet<IdentityClaimType> ClaimTypes { get; }
