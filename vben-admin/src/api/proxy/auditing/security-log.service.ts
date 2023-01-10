@@ -6,25 +6,25 @@ import type { PagedResultDto } from '/@/utils/models/dtos';
 export class SecurityLogService {
   apiName = 'AbpAuditing';
 
-  deleteById = (id: string, options?: RequestOptions) =>
+  delete = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'DELETE',
         url: `/api/auditing/security-log/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  get = (id: string, options?: RequestOptions) =>
+  get = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<SecurityLogDto>(
       {
         method: 'GET',
         url: `/api/auditing/security-log/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  getList = (input: SecurityLogGetByPagedDto, options?: RequestOptions) =>
+  getList = (input: SecurityLogGetByPagedDto, requestOptions?: RequestOptions) =>
     defHttp.request<PagedResultDto<SecurityLogDto>>(
       {
         method: 'GET',
@@ -44,6 +44,6 @@ export class SecurityLogService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 }

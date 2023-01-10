@@ -16,14 +16,18 @@ npm install or
 yarn
 ```
 
-## LocalLaunch
+## run by script
+
+run`build-all.ps1`, relevant parameters, see the file
+
+## run by local
 
 ```
 npm run build
-schematics .:proxy-add --sourceUrl 'http://localhost:8086' --rootNamespace 'Zoey|Zoey.Admin|Volo.Abp|Volo.Abp.AspNetCore.Mvc|Pages.Abp' --dry-run=false --module 'account'
+schematics .:proxy-add --sourceUrl 'http://localhost:8086' --rootNamespace 'Zoey|Zoey.Admin|Volo.Abp|Volo.Abp.AspNetCore.Mvc' --dry-run=false --module 'account'
 ```
 
-## Remote Run
+## run by remote
 
 ## 1.在该项目执行 link 命令
 
@@ -43,7 +47,7 @@ npm link ks-schematics
 ng g ks-schematics:proxy-add -t ng -m 'questions'
 ```
 
-# 本地调试
+# debug
 
 1. lanch.json
    ```
@@ -78,11 +82,10 @@ ng g ks-schematics:proxy-add -t ng -m 'questions'
     ]
    }
    ```
-2. 执行命令
+2. run script
 
    ```
    npm run build
-   npm run test
    ```
 
-3. F5 运行
+3. F5 run

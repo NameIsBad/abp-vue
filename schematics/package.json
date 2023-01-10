@@ -4,7 +4,8 @@
   "description": "Schematics that works with ABP Backend",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "test": "npm run build && jasmine src/**/*_spec.js",
+    "lint:prettier": "prettier --write  \"generate-code/proxy/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\""
   },
   "keywords": [
     "schematics"
@@ -27,7 +28,8 @@
     "@types/jest": "^26.0.0",
     "@types/node": "^12.11.1",
     "jest": "^26.0.0",
-    "jest-preset-angular": "^8.2.0"
+    "jest-preset-angular": "^8.2.0",
+    "prettier": "^2.6.2"
   },
   "publishConfig": {
     "access": "public"

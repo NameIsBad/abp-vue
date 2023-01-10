@@ -53,7 +53,7 @@ export interface IdentityClaimTypeGetByPagedDto extends PagedAndSortedResultRequ
   filter?: string;
 }
 
-export type IdentityClaimTypeUpdateDto = IdentityClaimTypeCreateOrUpdateBaseDto;
+export interface IdentityClaimTypeUpdateDto extends IdentityClaimTypeCreateOrUpdateBaseDto {}
 
 export interface IdentityRoleAddOrRemoveOrganizationUnitDto {
   organizationUnitIds: string[];
@@ -64,13 +64,13 @@ export interface IdentityRoleClaimCreateDto {
   claimValue: string;
 }
 
-export type IdentityRoleClaimDeleteDto = IdentityRoleClaimCreateDto;
+export interface IdentityRoleClaimDeleteDto extends IdentityRoleClaimCreateDto {}
 
 export interface IdentityRoleClaimUpdateDto extends IdentityRoleClaimCreateDto {
   newClaimValue: string;
 }
 
-export type IdentityRoleCreateDto = IdentityRoleCreateOrUpdateDtoBase;
+export interface IdentityRoleCreateDto extends IdentityRoleCreateOrUpdateDtoBase {}
 
 export interface IdentityRoleCreateOrUpdateDtoBase extends ExtensibleObject {
   name: string;
@@ -95,7 +95,7 @@ export interface IdentityUserClaimCreateDto {
   claimValue: string;
 }
 
-export type IdentityUserClaimDeleteDto = IdentityUserClaimCreateDto;
+export interface IdentityUserClaimDeleteDto extends IdentityUserClaimCreateDto {}
 
 export interface IdentityUserClaimUpdateDto extends IdentityUserClaimCreateDto {
   newClaimValue: string;

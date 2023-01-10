@@ -82,11 +82,11 @@ public class LoginController : AdminController
             new (AbpClaimTypes.TenantId,userInfo.TenantId?.ToString() ?? string.Empty),
             new (AbpClaimTypes.Email,userInfo.Email),
             new (AbpClaimTypes.UserName,userInfo.UserName),
-            new (AbpClaimTypes.Name,userInfo.Name),
+            new (AbpClaimTypes.Name,userInfo.NormalizedUserName??""),
             new (AbpClaimTypes.Role,JsonSerializer.Serialize(roles),JsonClaimValueTypes.JsonArray)
         };
         var customUserClaims = await _userManager.GetClaimsAsync(userInfo);
-        if (customUserClaims != null)
+        if (customUserClaims.Count > 0)
         {
             claims.AddRange(customUserClaims);
         }

@@ -1,5 +1,4 @@
-<%
-for (const {keyword, specifiers, path} of imports) {
+<% for (const {keyword, specifiers, path} of imports) {
 %><%= keyword %> { <%= specifiers.join(', ') %> } from '<%= path %>';
 <% }
 for (let {base, identifier, properties} of interfaces) { %>

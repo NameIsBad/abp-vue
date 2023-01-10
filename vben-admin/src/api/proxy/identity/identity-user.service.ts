@@ -1,17 +1,10 @@
 import type {
-  ChangePasswordDto,
   GetIdentityUsersInput,
-  IdentityClaimDto,
   IdentityRoleDto,
-  IdentityUserClaimCreateDto,
-  IdentityUserClaimDeleteDto,
-  IdentityUserClaimUpdateDto,
   IdentityUserCreateDto,
   IdentityUserDto,
-  IdentityUserOrganizationUnitUpdateDto,
   IdentityUserUpdateDto,
   IdentityUserUpdateRolesDto,
-  OrganizationUnitDto,
 } from './models';
 import { RequestOptions } from '/#/axios';
 import { defHttp } from '/@/utils/http/axios';
@@ -20,107 +13,62 @@ import type { ListResultDto, PagedResultDto } from '/@/utils/models/dtos';
 export class IdentityUserService {
   apiName = 'AbpIdentity';
 
-  addClaim = (id: string, input: IdentityUserClaimCreateDto, options?: RequestOptions) =>
-    defHttp.request<void>(
-      {
-        method: 'POST',
-        url: `/api/identity/users/${id}/claims`,
-        data: input,
-      },
-      options,
-    );
-
-  changePassword = (id: string, input: ChangePasswordDto, options?: RequestOptions) =>
-    defHttp.request<void>(
-      {
-        method: 'PUT',
-        url: '/api/identity/users/change-password',
-        params: {
-          id,
-        },
-        data: input,
-      },
-      options,
-    );
-
-  create = (input: IdentityUserCreateDto, options?: RequestOptions) =>
+  create = (input: IdentityUserCreateDto, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityUserDto>(
       {
         method: 'POST',
         url: '/api/identity/users',
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  deleteById = (id: string, options?: RequestOptions) =>
+  delete = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'DELETE',
         url: `/api/identity/users/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  deleteClaim = (id: string, input: IdentityUserClaimDeleteDto, options?: RequestOptions) =>
-    defHttp.request<void>(
-      {
-        method: 'DELETE',
-        url: `/api/identity/users/${id}/claims`,
-        params: {
-          claimType: input.claimType,
-          claimValue: input.claimValue,
-        },
-      },
-      options,
-    );
-
-  findByEmail = (email: string, options?: RequestOptions) =>
+  findByEmail = (email: string, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityUserDto>(
       {
         method: 'GET',
         url: `/api/identity/users/by-email/${email}`,
       },
-      options,
+      requestOptions,
     );
 
-  findByUsername = (userName: string, options?: RequestOptions) =>
+  findByUsername = (userName: string, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityUserDto>(
       {
         method: 'GET',
         url: `/api/identity/users/by-username/${userName}`,
       },
-      options,
+      requestOptions,
     );
 
-  get = (id: string, options?: RequestOptions) =>
+  get = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityUserDto>(
       {
         method: 'GET',
         url: `/api/identity/users/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  getAssignableRoles = (options?: RequestOptions) =>
+  getAssignableRoles = (requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<IdentityRoleDto>>(
       {
         method: 'GET',
         url: '/api/identity/users/assignable-roles',
       },
-      options,
+      requestOptions,
     );
 
-  getClaims = (id: string, options?: RequestOptions) =>
-    defHttp.request<ListResultDto<IdentityClaimDto>>(
-      {
-        method: 'GET',
-        url: `/api/identity/users/${id}/claims`,
-      },
-      options,
-    );
-
-  getList = (input: GetIdentityUsersInput, options?: RequestOptions) =>
+  getList = (input: GetIdentityUsersInput, requestOptions?: RequestOptions) =>
     defHttp.request<PagedResultDto<IdentityUserDto>>(
       {
         method: 'GET',
@@ -132,95 +80,35 @@ export class IdentityUserService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 
-  getOrganizationUnits = (id: string, options?: RequestOptions) =>
-    defHttp.request<ListResultDto<OrganizationUnitDto>>(
-      {
-        method: 'GET',
-        url: `/api/identity/users/${id}/organization-units`,
-      },
-      options,
-    );
-
-  getRoles = (id: string, options?: RequestOptions) =>
+  getRoles = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<IdentityRoleDto>>(
       {
         method: 'GET',
         url: `/api/identity/users/${id}/roles`,
       },
-      options,
+      requestOptions,
     );
 
-  lock = (id: string, seconds: number, options?: RequestOptions) =>
-    defHttp.request<void>(
-      {
-        method: 'PUT',
-        url: `/api/identity/users/${id}/lock/${seconds}`,
-      },
-      options,
-    );
-
-  removeOrganizationUnits = (id: string, ouId: string, options?: RequestOptions) =>
-    defHttp.request<void>(
-      {
-        method: 'DELETE',
-        url: `/api/identity/users/${id}/organization-units/${ouId}`,
-      },
-      options,
-    );
-
-  setOrganizationUnits = (
-    id: string,
-    input: IdentityUserOrganizationUnitUpdateDto,
-    options?: RequestOptions,
-  ) =>
-    defHttp.request<void>(
-      {
-        method: 'PUT',
-        url: `/api/identity/users/${id}/organization-units`,
-        data: input,
-      },
-      options,
-    );
-
-  unLock = (id: string, options?: RequestOptions) =>
-    defHttp.request<void>(
-      {
-        method: 'PUT',
-        url: `/api/identity/users/${id}/unlock`,
-      },
-      options,
-    );
-
-  update = (id: string, input: IdentityUserUpdateDto, options?: RequestOptions) =>
+  update = (id: string, input: IdentityUserUpdateDto, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityUserDto>(
       {
         method: 'PUT',
         url: `/api/identity/users/${id}`,
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  updateClaim = (id: string, input: IdentityUserClaimUpdateDto, options?: RequestOptions) =>
-    defHttp.request<void>(
-      {
-        method: 'PUT',
-        url: `/api/identity/users/${id}/claims`,
-        data: input,
-      },
-      options,
-    );
-
-  updateRoles = (id: string, input: IdentityUserUpdateRolesDto, options?: RequestOptions) =>
+  updateRoles = (id: string, input: IdentityUserUpdateRolesDto, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'PUT',
         url: `/api/identity/users/${id}/roles`,
         data: input,
       },
-      options,
+      requestOptions,
     );
 }

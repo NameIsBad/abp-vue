@@ -61,7 +61,9 @@ export const useAbpStore = defineStore({
       }
     },
     async initlizeAbpApplication() {
-      const application = await new AbpApplicationConfigurationService().get();
+      const application = await new AbpApplicationConfigurationService().get({
+        includeLocalizationResources: true,
+      });
       this.setApplication(application);
 
       const { localization } = application;

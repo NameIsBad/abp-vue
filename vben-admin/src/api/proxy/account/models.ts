@@ -44,3 +44,8 @@ export interface UpdateProfileDto extends ExtensibleObject {
   phoneNumber?: string;
   concurrencyStamp?: string;
 }
+
+export interface VerifyPasswordResetTokenInput {
+  userId?: string;
+  resetToken: string;
+}

@@ -13,7 +13,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Volo.Abp;
-using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.Autofac;
@@ -27,12 +26,14 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.Json.SystemTextJson;
 using Zoey.Domain.Shared;
+using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
+
 namespace Zoey.Admin;
 [DependsOn(
     typeof(AdminApplicationModule),
     typeof(ZoeyEntityFrameworkCoreModule),
     typeof(AdminHttpApiModule),
-    typeof(AbpAspNetCoreMultiTenancyModule),
+    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
     typeof(AbpAutofacModule),
     typeof(AbpEntityFrameworkCoreMySQLModule),
     typeof(AbpAuditLoggingEntityFrameworkCoreModule),

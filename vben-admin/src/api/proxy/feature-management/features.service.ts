@@ -5,7 +5,20 @@ import { defHttp } from '/@/utils/http/axios';
 export class FeaturesService {
   apiName = 'AbpFeatureManagement';
 
-  get = (providerName: string, providerKey: string, options?: RequestOptions) =>
+  delete = (providerName: string, providerKey: string, requestOptions?: RequestOptions) =>
+    defHttp.request<void>(
+      {
+        method: 'DELETE',
+        url: '/api/feature-management/features',
+        params: {
+          providerName,
+          providerKey,
+        },
+      },
+      requestOptions,
+    );
+
+  get = (providerName: string, providerKey: string, requestOptions?: RequestOptions) =>
     defHttp.request<GetFeatureListResultDto>(
       {
         method: 'GET',
@@ -15,14 +28,14 @@ export class FeaturesService {
           providerKey,
         },
       },
-      options,
+      requestOptions,
     );
 
   update = (
     providerName: string,
     providerKey: string,
     input: UpdateFeaturesDto,
-    options?: RequestOptions,
+    requestOptions?: RequestOptions,
   ) =>
     defHttp.request<void>(
       {
@@ -34,6 +47,6 @@ export class FeaturesService {
         },
         data: input,
       },
-      options,
+      requestOptions,
     );
 }

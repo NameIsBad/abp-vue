@@ -24,46 +24,46 @@ import type {
 export class OrganizationUnitService {
   apiName = 'AbpIdentity';
 
-  addRoles = (id: string, input: OrganizationUnitAddRoleDto, options?: RequestOptions) =>
+  addRoles = (id: string, input: OrganizationUnitAddRoleDto, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'POST',
         url: `/api/identity/organization-units/${id}/roles`,
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  addUsers = (id: string, input: OrganizationUnitAddUserDto, options?: RequestOptions) =>
+  addUsers = (id: string, input: OrganizationUnitAddUserDto, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'POST',
         url: `/api/identity/organization-units/${id}/users`,
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  create = (input: OrganizationUnitCreateDto, options?: RequestOptions) =>
+  create = (input: OrganizationUnitCreateDto, requestOptions?: RequestOptions) =>
     defHttp.request<OrganizationUnitDto>(
       {
         method: 'POST',
         url: '/api/identity/organization-units',
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  deleteById = (id: string, options?: RequestOptions) =>
+  delete = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'DELETE',
         url: `/api/identity/organization-units/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  findChildren = (input: OrganizationUnitGetChildrenDto, options?: RequestOptions) =>
+  findChildren = (input: OrganizationUnitGetChildrenDto, requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<OrganizationUnitDto>>(
       {
         method: 'GET',
@@ -73,28 +73,28 @@ export class OrganizationUnitService {
           recursive: input.recursive,
         },
       },
-      options,
+      requestOptions,
     );
 
-  get = (id: string, options?: RequestOptions) =>
+  get = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<OrganizationUnitDto>(
       {
         method: 'GET',
         url: `/api/identity/organization-units/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  getAllList = (options?: RequestOptions) =>
+  getAllList = (requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<OrganizationUnitDto>>(
       {
         method: 'GET',
         url: '/api/identity/organization-units/all',
       },
-      options,
+      requestOptions,
     );
 
-  getLastChildOrNull = (parentId: string, options?: RequestOptions) =>
+  getLastChildOrNull = (parentId: string, requestOptions?: RequestOptions) =>
     defHttp.request<OrganizationUnitDto>(
       {
         method: 'GET',
@@ -103,10 +103,10 @@ export class OrganizationUnitService {
           parentId,
         },
       },
-      options,
+      requestOptions,
     );
 
-  getList = (input: OrganizationUnitGetByPagedDto, options?: RequestOptions) =>
+  getList = (input: OrganizationUnitGetByPagedDto, requestOptions?: RequestOptions) =>
     defHttp.request<PagedResultDto<OrganizationUnitDto>>(
       {
         method: 'GET',
@@ -118,45 +118,45 @@ export class OrganizationUnitService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 
-  getRoleNames = (id: string, options?: RequestOptions) =>
+  getRoleNames = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<string>>(
       {
         method: 'GET',
         url: `/api/identity/organization-units/${id}/role-names`,
       },
-      options,
+      requestOptions,
     );
 
-  getRoles = (id: string, input: PagedAndSortedResultRequestDto, options?: RequestOptions) =>
+  getRoles = (id: string, input: PagedAndSortedResultRequestDto, requestOptions?: RequestOptions) =>
     defHttp.request<PagedResultDto<IdentityRoleDto>>(
       {
         method: 'GET',
         url: `/api/identity/organization-units/${id}/roles`,
         params: {
+          sorting: input.sorting,
           skipCount: input.skipCount,
           maxResultCount: input.maxResultCount,
-          sorting: input.sorting,
         },
       },
-      options,
+      requestOptions,
     );
 
-  getRoot = (options?: RequestOptions) =>
+  getRoot = (requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<OrganizationUnitDto>>(
       {
         method: 'GET',
         url: '/api/identity/organization-units/root-node',
       },
-      options,
+      requestOptions,
     );
 
   getUnaddedRoles = (
     id: string,
     input: OrganizationUnitGetUnaddedRoleByPagedDto,
-    options?: RequestOptions,
+    requestOptions?: RequestOptions,
   ) =>
     defHttp.request<PagedResultDto<IdentityRoleDto>>(
       {
@@ -169,13 +169,13 @@ export class OrganizationUnitService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 
   getUnaddedUsers = (
     id: string,
     input: OrganizationUnitGetUnaddedUserByPagedDto,
-    options?: RequestOptions,
+    requestOptions?: RequestOptions,
   ) =>
     defHttp.request<PagedResultDto<IdentityUserDto>>(
       {
@@ -188,10 +188,10 @@ export class OrganizationUnitService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 
-  getUsers = (id: string, input: GetIdentityUsersInput, options?: RequestOptions) =>
+  getUsers = (id: string, input: GetIdentityUsersInput, requestOptions?: RequestOptions) =>
     defHttp.request<PagedResultDto<IdentityUserDto>>(
       {
         method: 'GET',
@@ -203,44 +203,44 @@ export class OrganizationUnitService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 
-  move = (id: string, input: OrganizationUnitMoveDto, options?: RequestOptions) =>
+  move = (id: string, input: OrganizationUnitMoveDto, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'PUT',
         url: `/api/identity/organization-units/${id}/move`,
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  removeRoles = (roleId: string, ouId: string, options?: RequestOptions) =>
+  removeRoles = (roleId: string, ouId: string, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'DELETE',
         url: `/api/identity/organization-units/${ouId}/roles/${roleId}`,
       },
-      options,
+      requestOptions,
     );
 
-  removeUsers = (userId: string, ouId: string, options?: RequestOptions) =>
+  removeUsers = (userId: string, ouId: string, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'DELETE',
         url: `/api/identity/organization-units/${ouId}/users/${userId}`,
       },
-      options,
+      requestOptions,
     );
 
-  update = (id: string, input: OrganizationUnitUpdateDto, options?: RequestOptions) =>
+  update = (id: string, input: OrganizationUnitUpdateDto, requestOptions?: RequestOptions) =>
     defHttp.request<OrganizationUnitDto>(
       {
         method: 'PUT',
         url: `/api/identity/organization-units/${id}`,
         data: input,
       },
-      options,
+      requestOptions,
     );
 }

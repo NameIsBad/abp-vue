@@ -7,22 +7,22 @@ import type { SettingGroup } from '../setting-ui/dto/models';
 export class SettingService {
   apiName = 'AbpIdentity';
 
-  get = (options?: RequestOptions) =>
+  get = (requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<SettingGroup>>(
       {
         method: 'GET',
         url: '/api/identity/settings',
       },
-      options,
+      requestOptions,
     );
 
-  update = (input: UpdateSettingInput, options?: RequestOptions) =>
+  update = (input: UpdateSettingInput, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'POST',
         url: '/api/identity/settings',
         data: input,
       },
-      options,
+      requestOptions,
     );
 }

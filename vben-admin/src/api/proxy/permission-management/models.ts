@@ -15,6 +15,8 @@ export interface PermissionGrantInfoDto {
 export interface PermissionGroupDto {
   name?: string;
   displayName?: string;
+  displayNameKey?: string;
+  displayNameResource?: string;
   permissions: PermissionGrantInfoDto[];
 }
 
