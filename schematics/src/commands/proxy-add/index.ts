@@ -1,6 +1,7 @@
-import { chain, SchematicContext, Tree } from "@angular-devkit/schematics";
-import { GenerateProxySchema } from "../../models";
+import { chain, Tree } from '@angular-devkit/schematics';
+import { GenerateProxySchema } from '../../models';
 import {
+  buildTargetPath,
   createApiDefinitionGetter,
   createApisGenerator,
   createProxyClearer,
@@ -10,23 +11,23 @@ import {
   createProxyWarningSaver,
   mergeAndAllowDelete,
   removeDefaultPlaceholders,
-  buildDefaultPath,
-} from "../../utils";
+  resolveProject,
+} from '../../utils';
 
 export default function (schema: GenerateProxySchema) {
   const params = removeDefaultPlaceholders(schema);
-  const moduleName = params.module || "app";
+  const moduleName = params.module || 'app';
 
   return chain([
-    async (host: Tree, _context: SchematicContext) => {
-      // const target = await resolveProject(host, params.target!);
-      const targetPath = buildDefaultPath();
+    async (host: Tree) => {
+      const target = await resolveProject(host, params.target!);
+      const targetPath = buildTargetPath(target.definition, params.entryPoint);
       const readProxyConfig = createProxyConfigReader(targetPath);
       let generated: string[] = [];
 
       try {
         generated = readProxyConfig(host).generated;
-        const index = generated.findIndex((m) => m === moduleName);
+        const index = generated.findIndex(m => m === moduleName);
         if (index < 0) generated.push(moduleName);
       } catch (_) {
         generated.push(moduleName);

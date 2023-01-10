@@ -1,7 +1,7 @@
-import { Controller, Type } from "./api-definition";
-import { Import } from "./import";
-import { Method } from "./method";
-import { Omissible } from "./util";
+import { Controller, Type } from './api-definition';
+import { Import } from './import';
+import { Method } from './method';
+import { Omissible } from './util';
 
 export interface ServiceGeneratorParams {
   targetPath: string;
@@ -24,4 +24,4 @@ export class Service {
   }
 }
 
-export type ServiceOptions = Omissible<Service, "imports" | "methods">;
+export type ServiceOptions = Omissible<Service, 'imports' | 'methods'>;
