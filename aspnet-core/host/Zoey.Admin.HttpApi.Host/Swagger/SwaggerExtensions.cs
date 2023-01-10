@@ -41,7 +41,7 @@ public static class SwaggerExtensions
             OpenApiInfo = new OpenApiInfo()
             {
                 Title = "认证模块",
-                Description = "<code>认证模块</code>",
+                Description = "<code>身份认证模块</code>",
                 Version = "v1"
             },
             Endpoint = IdentityRemoteServiceConsts.ModuleName,

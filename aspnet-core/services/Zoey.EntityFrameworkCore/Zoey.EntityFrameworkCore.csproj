@@ -19,7 +19,10 @@
         <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
         <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" />
         <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
-        <ProjectReference Include="..\Zoey.Domain\Zoey.Domain.csproj" />
     </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zoey.Domain\Zoey.Domain.csproj" />
+	</ItemGroup>
 
 </Project>

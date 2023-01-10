@@ -13,7 +13,10 @@
         <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" />
         <PackageReference Include="Volo.Abp.Identity.Domain" />
         <PackageReference Include="Volo.Abp.TenantManagement.Domain" />
-        <ProjectReference Include="..\Zoey.Domain.Shared\Zoey.Domain.Shared.csproj" />
     </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zoey.Domain.Shared\Zoey.Domain.Shared.csproj" />
+	</ItemGroup>
 
 </Project>

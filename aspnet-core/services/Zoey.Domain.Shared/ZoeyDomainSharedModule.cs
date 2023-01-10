@@ -21,7 +21,8 @@ namespace Zoey;
     typeof(AbpSettingManagementDomainSharedModule),
     typeof(AbpPermissionManagementDomainSharedModule),
     typeof(AbpAuditLoggingDomainSharedModule),
-    typeof(AbpSettingUiDomainSharedModule),
+    //todo 7.0
+    //typeof(AbpSettingUiDomainSharedModule),
     typeof(AbpTenantManagementDomainSharedModule),
     typeof(AbpIdentityDomainSharedModule)
 )]

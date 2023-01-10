@@ -6,6 +6,7 @@
 
     <ItemGroup>
         <PackageReference Include="Serilog.AspNetCore" />
+        <PackageReference Include="Serilog.Sinks.Async" />
         <PackageReference Include="Swashbuckle.AspNetCore.Filters" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
         <PackageReference Include="Volo.Abp.AspNetCore.Serilog" />

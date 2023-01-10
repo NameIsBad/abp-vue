@@ -1,5 +1,4 @@
-﻿using Zoey.MultiTenancy;
-using Volo.Abp.AuditLogging;
+﻿using Volo.Abp.AuditLogging;
 using Volo.Abp.Domain;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -8,6 +7,7 @@ using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement.Identity;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
+using Zoey.Domain.Shared;
 
 namespace Zoey;
 

@@ -6,7 +6,7 @@
     <PackageVersion Include="EPPlus.Core" Version="1.5.4" />
     <PackageVersion Include="Snowflake.Core" Version="2.0.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.1" />
-    <PackageVersion Include="Serilog.AspNetCore" Version="6.0.1" />
+    <PackageVersion Include="Serilog.AspNetCore" Version="6.1.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Filters" Version="7.0.6" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
     <PackageVersion Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.1" />
@@ -20,90 +20,91 @@
   </ItemGroup>
   <!--abp core-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.AutoMapper" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Autofac" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Data" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Validation" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Swashbuckle" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Authorization" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.EntityFrameworkCore" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.AutoMapper" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Autofac" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Data" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Validation" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Swashbuckle" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Authorization" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.EntityFrameworkCore" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.AspNetCore.MultiTenancy" Version="7.0.0" />
   </ItemGroup>
   <!--abp base ddd-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.Ddd.Application" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.Ddd.Application" Version="7.0.0" />
   </ItemGroup>
   <!--abp aspnetcore-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.AspNetCore.Mvc" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.AspNetCore.Serilog" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.AspNetCore.Mvc" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.AspNetCore.Serilog" Version="7.0.0" />
   </ItemGroup>
   <!--FeatureManagement-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.FeatureManagement.Application" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.FeatureManagement.Domain" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.FeatureManagement.HttpApi" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.FeatureManagement.Application" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.FeatureManagement.Domain" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.FeatureManagement.HttpApi" Version="7.0.0" />
   </ItemGroup>
   <!--Account-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.Account.Application" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Account.Application.Contracts" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Account.HttpApi" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.Account.Application" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Account.Application.Contracts" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Account.HttpApi" Version="7.0.0" />
   </ItemGroup>
   <!--TenantManagement-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.TenantManagement.Application" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.TenantManagement.Application.Contracts" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.TenantManagement.Domain" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.TenantManagement.Domain.Shared" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.TenantManagement.HttpApi" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.TenantManagement.Application" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.TenantManagement.Application.Contracts" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.TenantManagement.Domain" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.TenantManagement.Domain.Shared" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.TenantManagement.HttpApi" Version="7.0.0" />
   </ItemGroup>
   <!--SettingManagement-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.SettingManagement.Application" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.SettingManagement.Application.Contracts" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.SettingManagement.Domain" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.SettingManagement.Domain.Shared" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.SettingManagement.HttpApi" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.SettingManagement.Application" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.SettingManagement.Application.Contracts" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.SettingManagement.Domain" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.SettingManagement.Domain.Shared" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.SettingManagement.HttpApi" Version="7.0.0" />
   </ItemGroup>
   <!--PermissionManagement-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.PermissionManagement.Application" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.PermissionManagement.Domain" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.PermissionManagement.HttpApi" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.PermissionManagement.Application" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.PermissionManagement.Domain" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.PermissionManagement.HttpApi" Version="7.0.0" />
   </ItemGroup>
   <!--Identity-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.Identity.AspNetCore" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Identity.Application" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Identity.Application.Contracts" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Identity.Domain" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Identity.Domain.Shared" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Identity.EntityFrameworkCore" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.Identity.HttpApi" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.Identity.AspNetCore" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Identity.Application" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Identity.Application.Contracts" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Identity.Domain" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Identity.Domain.Shared" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Identity.EntityFrameworkCore" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.Identity.HttpApi" Version="7.0.0" />
   </ItemGroup>
   <!--AuditLogging-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.AuditLogging.Domain" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.AuditLogging.Domain.Shared" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="7.0.0-rc.6" />
+    <PackageVersion Include="Volo.Abp.AuditLogging.Domain" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.AuditLogging.Domain.Shared" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="7.0.0" />
   </ItemGroup>
   <!--other-->
   <ItemGroup>
-    <PackageVersion Include="Volo.Abp.Caching.StackExchangeRedis" Version="7.0.0-rc.6" />
-    <PackageVersion Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="7.0.0-rc.6" />
-    <!--<PackageVersion Include="Volo.Abp.EntityFrameworkCore.PostgreSql" Version="7.0.0-rc.6" />-->
+    <PackageVersion Include="Volo.Abp.Caching.StackExchangeRedis" Version="7.0.0" />
+    <PackageVersion Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="7.0.0" />
+    <!--<PackageVersion Include="Volo.Abp.EntityFrameworkCore.PostgreSql" Version="7.0.0" />-->
   </ItemGroup>
   <!--EasyAbp-->
   <ItemGroup>

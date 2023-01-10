@@ -18,7 +18,8 @@ namespace Zoey.Admin;
     typeof(AbpSettingManagementApplicationContractsModule),
     typeof(AbpIdentityApplicationContractsModule),
     typeof(AbpTenantManagementApplicationContractsModule),
-    typeof(AbpSettingUiApplicationContractsModule),
+    //todo 7.0
+    //typeof(AbpSettingUiApplicationContractsModule),
     typeof(AbpAuthorizationModule)
 )]
 public class AdminApplicationContractsModule : AbpModule

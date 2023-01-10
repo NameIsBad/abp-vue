@@ -18,7 +18,8 @@ namespace Zoey.Admin;
     typeof(AdminApplicationContractsModule),
     typeof(AbpDddApplicationModule),
     typeof(AbpAutoMapperModule),
-    typeof(AbpSettingUiApplicationModule),
+    // todo 7.0
+    //typeof(AbpSettingUiApplicationModule),
     typeof(AbpFeatureManagementApplicationModule),
     // typeof(AbpCachingStackExchangeRedisModule),
     typeof(AbpPermissionManagementApplicationModule),
