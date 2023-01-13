@@ -108,8 +108,8 @@
   </ItemGroup>
   <!--EasyAbp-->
   <ItemGroup>
-    <PackageVersion Include="EasyAbp.Abp.SettingUi.Application" Version="1.7.0" />
-    <PackageVersion Include="EasyAbp.Abp.SettingUi.Application.Contracts" Version="1.7.0" />
-    <PackageVersion Include="EasyAbp.Abp.SettingUi.Domain.Shared" Version="1.7.0" />
+    <PackageVersion Include="EasyAbp.Abp.SettingUi.Application" Version="1.8.0" />
+    <PackageVersion Include="EasyAbp.Abp.SettingUi.Application.Contracts" Version="1.8.0" />
+    <PackageVersion Include="EasyAbp.Abp.SettingUi.Domain.Shared" Version="1.8.0" />
   </ItemGroup>
 </Project>
