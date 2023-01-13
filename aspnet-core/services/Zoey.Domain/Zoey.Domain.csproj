@@ -1,20 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
         <RootNamespace>Zoey</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.PermissionManagement.Domain" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.Identity.Domain" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="$(AbpVersion)" />
-        <ProjectReference Include="..\..\shared\Zoey.Shared\Zoey.Shared.csproj" />
-        <ProjectReference Include="..\Zoey.Domain.Shared\Zoey.Domain.Shared.csproj" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.Domain" />
+        <PackageReference Include="Volo.Abp.SettingManagement.Domain" />
+        <PackageReference Include="Volo.Abp.AuditLogging.Domain" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.Domain" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" />
+        <PackageReference Include="Volo.Abp.Identity.Domain" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Domain" />
     </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zoey.Domain.Shared\Zoey.Domain.Shared.csproj" />
+	</ItemGroup>
 
 </Project>

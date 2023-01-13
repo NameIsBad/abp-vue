@@ -5,7 +5,7 @@ import { defHttp } from '/@/utils/http/axios';
 export class PermissionsService {
   apiName = 'AbpPermissionManagement';
 
-  get = (providerName: string, providerKey: string, options?: RequestOptions) =>
+  get = (providerName: string, providerKey: string, requestOptions?: RequestOptions) =>
     defHttp.request<GetPermissionListResultDto>(
       {
         method: 'GET',
@@ -15,14 +15,14 @@ export class PermissionsService {
           providerKey,
         },
       },
-      options,
+      requestOptions,
     );
 
   update = (
     providerName: string,
     providerKey: string,
     input: UpdatePermissionsDto,
-    options?: RequestOptions,
+    requestOptions?: RequestOptions,
   ) =>
     defHttp.request<void>(
       {
@@ -34,6 +34,6 @@ export class PermissionsService {
         },
         data: input,
       },
-      options,
+      requestOptions,
     );
 }

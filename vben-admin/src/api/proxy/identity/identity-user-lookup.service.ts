@@ -7,25 +7,25 @@ import type { UserData } from '../users/models';
 export class IdentityUserLookupService {
   apiName = 'AbpIdentity';
 
-  findById = (id: string, options?: RequestOptions) =>
+  findById = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<UserData>(
       {
         method: 'GET',
         url: `/api/identity/users/lookup/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  findByUserName = (userName: string, options?: RequestOptions) =>
+  findByUserName = (userName: string, requestOptions?: RequestOptions) =>
     defHttp.request<UserData>(
       {
         method: 'GET',
         url: `/api/identity/users/lookup/by-username/${userName}`,
       },
-      options,
+      requestOptions,
     );
 
-  getCount = (input: UserLookupCountInputDto, options?: RequestOptions) =>
+  getCount = (input: UserLookupCountInputDto, requestOptions?: RequestOptions) =>
     defHttp.request<number>(
       {
         method: 'GET',
@@ -34,10 +34,10 @@ export class IdentityUserLookupService {
           filter: input.filter,
         },
       },
-      options,
+      requestOptions,
     );
 
-  search = (input: UserLookupSearchInputDto, options?: RequestOptions) =>
+  search = (input: UserLookupSearchInputDto, requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<UserData>>(
       {
         method: 'GET',
@@ -49,6 +49,6 @@ export class IdentityUserLookupService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 }

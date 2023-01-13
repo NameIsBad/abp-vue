@@ -1,4 +1,9 @@
-import type { RegisterDto, ResetPasswordDto, SendPasswordResetCodeDto } from './models';
+import type {
+  RegisterDto,
+  ResetPasswordDto,
+  SendPasswordResetCodeDto,
+  VerifyPasswordResetTokenInput,
+} from './models';
 import { RequestOptions } from '/#/axios';
 import { defHttp } from '/@/utils/http/axios';
 import type { IdentityUserDto } from '../identity/models';
@@ -6,33 +11,46 @@ import type { IdentityUserDto } from '../identity/models';
 export class AccountService {
   apiName = 'AbpAccount';
 
-  register = (input: RegisterDto, options?: RequestOptions) =>
+  register = (input: RegisterDto, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityUserDto>(
       {
         method: 'POST',
         url: '/api/account/register',
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  resetPassword = (input: ResetPasswordDto, options?: RequestOptions) =>
+  resetPassword = (input: ResetPasswordDto, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'POST',
         url: '/api/account/reset-password',
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  sendPasswordResetCode = (input: SendPasswordResetCodeDto, options?: RequestOptions) =>
+  sendPasswordResetCode = (input: SendPasswordResetCodeDto, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'POST',
         url: '/api/account/send-password-reset-code',
         data: input,
       },
-      options,
+      requestOptions,
+    );
+
+  verifyPasswordResetToken = (
+    input: VerifyPasswordResetTokenInput,
+    requestOptions?: RequestOptions,
+  ) =>
+    defHttp.request<boolean>(
+      {
+        method: 'POST',
+        url: '/api/account/verify-password-reset-token',
+        data: input,
+      },
+      requestOptions,
     );
 }

@@ -1,7 +1,7 @@
-import { chain, SchematicContext, Tree } from "@angular-devkit/schematics";
-import { GenerateProxySchema } from "../../models";
+import { chain, Tree } from '@angular-devkit/schematics';
+import { GenerateProxySchema } from '../../models';
 import {
-  buildDefaultPath,
+  buildTargetPath,
   createApiDefinitionGetter,
   createApisGenerator,
   createProxyClearer,
@@ -10,15 +10,15 @@ import {
   createProxyIndexGenerator,
   mergeAndAllowDelete,
   removeDefaultPlaceholders,
-} from "../../utils";
+  resolveProject,
+} from '../../utils';
 
 export default function (schema: GenerateProxySchema) {
   const params = removeDefaultPlaceholders(schema);
 
-  return async (host: Tree, _context: SchematicContext) => {
-    // const target = await resolveProject(host, params.target!);
-    // const targetPath = buildDefaultPath(target.definition);
-    const targetPath = buildDefaultPath();
+  return async (host: Tree) => {
+    const target = await resolveProject(host, params.target!);
+    const targetPath = buildTargetPath(target.definition, params.entryPoint);
 
     const readProxyConfig = createProxyConfigReader(targetPath);
     const { generated } = readProxyConfig(host);

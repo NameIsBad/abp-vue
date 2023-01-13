@@ -8,7 +8,7 @@ import type {
 export class AbpApiDefinitionService {
   apiName = 'abp';
 
-  getByModel = (model: ApplicationApiDescriptionModelRequestDto, options?: RequestOptions) =>
+  getByModel = (model: ApplicationApiDescriptionModelRequestDto, requestOptions?: RequestOptions) =>
     defHttp.request<ApplicationApiDescriptionModel>(
       {
         method: 'GET',
@@ -17,6 +17,6 @@ export class AbpApiDefinitionService {
           includeTypes: model.includeTypes,
         },
       },
-      options,
+      requestOptions,
     );
 }

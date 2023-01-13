@@ -1,28 +1,33 @@
 # ABP Suite Schematics
 
-所生成的代码不仅使用 `Vben`，同样适用 `Element` 等 `VUE` 框架
+所生成的代码不仅适用 `Vben`，同样适用 `ElementUI` 等 `VUE` 框架
 
-## 安装 Schematics cli
+## install Schematics cli
 
 ```
-npm install -g @angular-devkit/schematics-cli 或
+npm install -g @angular-devkit/schematics-cli or
 yarn add -g @angular-devkit/schematics-cli
 ```
 
-## 安装依赖包
+## Install dependency packages
+
 ```
-npm install 或
+npm install or
 yarn
 ```
 
-## 本地运行
+## run by script
+
+run`build-all.ps1`, relevant parameters, see the file
+
+## run by local
 
 ```
 npm run build
-schematics .:proxy-add --sourceUrl 'http://localhost:8086' --rootNamespace 'Zoey|Zoey.Admin|Volo.Abp|Volo.Abp.AspNetCore.Mvc|Pages.Abp' --dry-run=false --module 'account'
+schematics .:proxy-add --sourceUrl 'http://localhost:8086' --rootNamespace 'Zoey|Zoey.Admin|Volo.Abp|Volo.Abp.AspNetCore.Mvc' --dry-run=false --module 'account'
 ```
 
-## 远程运行
+## run by remote
 
 ## 1.在该项目执行 link 命令
 
@@ -42,7 +47,7 @@ npm link ks-schematics
 ng g ks-schematics:proxy-add -t ng -m 'questions'
 ```
 
-# 本地调试
+# debug
 
 1. lanch.json
    ```
@@ -77,11 +82,10 @@ ng g ks-schematics:proxy-add -t ng -m 'questions'
     ]
    }
    ```
-2. 执行命令
+2. run script
 
    ```
    npm run build
-   npm run test
    ```
 
-3. F5 运行
+3. F5 run

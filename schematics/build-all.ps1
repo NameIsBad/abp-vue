@@ -22,3 +22,6 @@ foreach ($service in $custom_services) {
     Write-Host ("Build " + $service + " ...")
     schematics .:proxy-add --source-url $api_url --root-namespace $namespace --dry-run=false --module $service
 }
+
+Write-Host("lint:prettier")
+npm run lint:prettier

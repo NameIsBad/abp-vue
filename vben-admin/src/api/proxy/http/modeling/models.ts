@@ -24,6 +24,7 @@ export interface ControllerApiDescriptionModel {
   controllerName?: string;
   controllerGroupName?: string;
   isRemoteService: boolean;
+  isIntegrationService: boolean;
   apiVersion?: string;
   type?: string;
   interfaces: ControllerInterfaceApiDescriptionModel[];
@@ -32,6 +33,14 @@ export interface ControllerApiDescriptionModel {
 
 export interface ControllerInterfaceApiDescriptionModel {
   type?: string;
+  name?: string;
+  methods: InterfaceMethodApiDescriptionModel[];
+}
+
+export interface InterfaceMethodApiDescriptionModel {
+  name?: string;
+  parametersOnMethod: MethodParameterApiDescriptionModel[];
+  returnValue: ReturnValueApiDescriptionModel;
 }
 
 export interface MethodParameterApiDescriptionModel {
@@ -68,6 +77,11 @@ export interface PropertyApiDescriptionModel {
   type?: string;
   typeSimple?: string;
   isRequired: boolean;
+  minLength?: number;
+  maxLength?: number;
+  minimum?: string;
+  maximum?: string;
+  regex?: string;
 }
 
 export interface ReturnValueApiDescriptionModel {

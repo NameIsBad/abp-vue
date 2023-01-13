@@ -1,7 +1,7 @@
-import { chain, SchematicContext, Tree } from "@angular-devkit/schematics";
-import { GenerateProxySchema } from "../../models";
+import { chain, Tree } from '@angular-devkit/schematics';
+import { GenerateProxySchema } from '../../models';
 import {
-  buildDefaultPath,
+  buildTargetPath,
   createApiDefinitionGetter,
   createApisGenerator,
   createProxyClearer,
@@ -10,22 +10,22 @@ import {
   createProxyIndexGenerator,
   mergeAndAllowDelete,
   removeDefaultPlaceholders,
-} from "../../utils";
+  resolveProject,
+} from '../../utils';
 
 export default function (schema: GenerateProxySchema) {
   const params = removeDefaultPlaceholders(schema);
-  const moduleName = params.module || "app";
+  const moduleName = params.module || 'app';
 
-  return async (host: Tree, _context: SchematicContext) => {
+  return async (host: Tree) => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    // const target = await resolveProject(host, params.target!);
-    // const targetPath = buildDefaultPath(target.definition);
-    const targetPath = buildDefaultPath();
+    const target = await resolveProject(host, params.target!);
+    const targetPath = buildTargetPath(target.definition, params.entryPoint);
 
     const readProxyConfig = createProxyConfigReader(targetPath);
     const { generated } = readProxyConfig(host);
 
-    const index = generated.findIndex((m) => m === moduleName);
+    const index = generated.findIndex(m => m === moduleName);
     if (index < 0) return host;
     generated.splice(index, 1);
 

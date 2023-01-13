@@ -4,6 +4,7 @@ export interface UserData {
   userName?: string;
   name?: string;
   surname?: string;
+  isActive: boolean;
   email?: string;
   emailConfirmed: boolean;
   phoneNumber?: string;

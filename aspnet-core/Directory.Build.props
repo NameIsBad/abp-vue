@@ -5,7 +5,5 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <AbpProjectType>app</AbpProjectType>
-	    <AbpVersion>5.3.2</AbpVersion>
-	    <EasyAbpVersion>1.6.2</EasyAbpVersion>
     </PropertyGroup>
 </Project>

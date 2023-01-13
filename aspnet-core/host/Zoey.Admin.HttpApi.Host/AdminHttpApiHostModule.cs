@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Zoey.Admin.Swagger;
 using Zoey.EntityFrameworkCore;
-using Zoey.MultiTenancy;
 using Zoey.Shared.Hosting.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -15,12 +14,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
-using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.Autofac;
-using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore.MySQL;
-using Volo.Abp.Identity;
 using Volo.Abp.Json;
 // using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Localization;
@@ -28,9 +24,11 @@ using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Json.SystemTextJson;
+using Zoey.Domain.Shared;
+using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 
 namespace Zoey.Admin;
-
 [DependsOn(
     typeof(AdminApplicationModule),
     typeof(ZoeyEntityFrameworkCoreModule),
@@ -55,7 +53,8 @@ public class AdminHttpApiHostModule : AbpModule
         ConfigureCors(context, configuration);
         ConfigureSwaggerServices(context, configuration);
         ConfigAntiForgery();
-        Configure<AbpJsonOptions>(options => options.DefaultDateTimeFormat = "yyyy-MM-dd HH:mm:ss");　　//对类型为DateTimeOffset生效
+        Configure<AbpJsonOptions>(options => options.OutputDateTimeFormat = "yyyy-MM-dd HH:mm:ss");　　//对类型为DateTimeOffset生效
+        context.Services.AddTransient<IJsonSerializer, AbpSystemTextJsonSerializer>();
     }
 
     private void ConfigureVirtualFileSystem(ServiceConfigurationContext context)
@@ -212,21 +211,6 @@ public class AdminHttpApiHostModule : AbpModule
         app.UseUnitOfWork();
         app.UseConfiguredEndpoints();
 
-#if DEBUG
-        //var dataSeeder = app.ApplicationServices.GetService<IDataSeeder>();
-        //await dataSeeder!.SeedAsync(new DataSeedContext()
-        //    .WithProperty(IdentityDataSeedContributor.AdminEmailPropertyName,
-        //        IdentityDataSeedContributor.AdminEmailDefaultValue)
-        //    .WithProperty(IdentityDataSeedContributor.AdminPasswordPropertyName,
-        //        IdentityDataSeedContributor.AdminPasswordDefaultValue)
-        //);
-        Volo.Abp.Threading.AsyncHelper.RunSync(async () =>
-        {
-            using var scope = context.ServiceProvider.CreateScope();
-            await scope.ServiceProvider
-                .GetRequiredService<IDataSeeder>()
-                .SeedAsync();
-        });
-#endif
+
     }
 }

@@ -5,13 +5,13 @@
   "type": "object",
   "properties": {
     "module": {
-      "description": "模块名称",
+      "description": "Backend module name",
       "type": "string",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "请输入模块名称. "
+      "x-prompt": "Please enter backend module name. (default: \"app\")"
     },
     "sourceUrl": {
       "description": "服务地址",
@@ -29,8 +29,75 @@
         "$source": "argv",
         "index": 2
       },
-      "x-prompt": "根命名空间,多个用|分割. (default: \"\")"
+      "x-prompt": "Please enter source Angular project for API definition URL & root namespace resolution. (default: workspace \"defaultProject\")"
     }
+    // "apiName": {
+    //   "description": "Backend api name, a.k.a. remoteServiceName",
+    //   "type": "string",
+    //   "$default": {
+    //     "$source": "argv",
+    //     "index": 1
+    //   },
+    //   "x-prompt": "Please enter backend api name, a.k.a. remoteServiceName. (default: \"default\")"
+    // },
+    // "source": {
+    //   "description": "Source Angular project for API definition URL & root namespace resolution",
+    //   "type": "string",
+    //   "$default": {
+    //     "$source": "argv",
+    //     "index": 2
+    //   },
+    //   "x-prompt": "Please enter source Angular project for API definition URL & root namespace resolution. (default: workspace \"defaultProject\")"
+    // },
+    // "target": {
+    //   "description": "Target Angular project to place the generated code",
+    //   "type": "string",
+    //   "$default": {
+    //     "$source": "argv",
+    //     "index": 3
+    //   },
+    //   "x-prompt": "Please enter target Angular project to place the generated code. (default: workspace \"defaultProject\")"
+    // },
+    // "url": {
+    //   "description": "Url for API definition",
+    //   "type": "string",
+    //   "$default": {
+    //     "$source": "argv",
+    //     "index": 4
+    //   },
+    //   "x-prompt": "Please enter URL for API definition (default: API Name's url in environment file)"
+    // },
+    // "serviceType": {
+    //   "description": "Service type to the generated code",
+    //   "type": "string",
+    //   "$default": {
+    //     "$source": "argv",
+    //     "index": 5
+    //   },
+    //   "enum": [
+    //     "application",
+    //     "integration",
+    //     "all"
+    //   ],
+    //   "x-prompt": {
+    //     "message": "Specifies the service type to generate. `application`, `integration` and `all`, Default value: `application`",
+    //     "type": "list",
+    //     "items": [
+    //       {
+    //         "value": "all",
+    //         "label": "All"
+    //       },
+    //       {
+    //         "value": "application",
+    //         "label": "Application"
+    //       },
+    //       {
+    //         "value": "integration",
+    //         "label": "Integration"
+    //       }
+    //     ]
+    //   }
+    // }
   },
   "required": []
 }

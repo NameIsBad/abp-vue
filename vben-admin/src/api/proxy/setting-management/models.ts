@@ -10,6 +10,13 @@ export interface EmailSettingsDto {
   defaultFromDisplayName?: string;
 }
 
+export interface SendTestEmailInput {
+  senderEmailAddress: string;
+  targetEmailAddress: string;
+  subject: string;
+  body?: string;
+}
+
 export interface UpdateEmailSettingsDto {
   smtpHost?: string;
   smtpPort: number;

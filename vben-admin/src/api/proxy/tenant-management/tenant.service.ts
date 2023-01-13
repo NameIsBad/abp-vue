@@ -6,54 +6,54 @@ import type { PagedResultDto } from '/@/utils/models/dtos';
 export class TenantService {
   apiName = 'AbpTenantManagement';
 
-  create = (input: TenantCreateDto, options?: RequestOptions) =>
+  create = (input: TenantCreateDto, requestOptions?: RequestOptions) =>
     defHttp.request<TenantDto>(
       {
         method: 'POST',
         url: '/api/multi-tenancy/tenants',
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  deleteById = (id: string, options?: RequestOptions) =>
+  delete = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'DELETE',
         url: `/api/multi-tenancy/tenants/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  deleteDefaultConnectionString = (id: string, options?: RequestOptions) =>
+  deleteDefaultConnectionString = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'DELETE',
         url: `/api/multi-tenancy/tenants/${id}/default-connection-string`,
       },
-      options,
+      requestOptions,
     );
 
-  get = (id: string, options?: RequestOptions) =>
+  get = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<TenantDto>(
       {
         method: 'GET',
         url: `/api/multi-tenancy/tenants/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  getDefaultConnectionString = (id: string, options?: RequestOptions) =>
+  getDefaultConnectionString = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<string>(
       {
         method: 'GET',
         responseType: 'text',
         url: `/api/multi-tenancy/tenants/${id}/default-connection-string`,
       },
-      options,
+      requestOptions,
     );
 
-  getList = (input: GetTenantsInput, options?: RequestOptions) =>
+  getList = (input: GetTenantsInput, requestOptions?: RequestOptions) =>
     defHttp.request<PagedResultDto<TenantDto>>(
       {
         method: 'GET',
@@ -65,23 +65,23 @@ export class TenantService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 
-  update = (id: string, input: TenantUpdateDto, options?: RequestOptions) =>
+  update = (id: string, input: TenantUpdateDto, requestOptions?: RequestOptions) =>
     defHttp.request<TenantDto>(
       {
         method: 'PUT',
         url: `/api/multi-tenancy/tenants/${id}`,
         data: input,
       },
-      options,
+      requestOptions,
     );
 
   updateDefaultConnectionString = (
     id: string,
     defaultConnectionString: string,
-    options?: RequestOptions,
+    requestOptions?: RequestOptions,
   ) =>
     defHttp.request<void>(
       {
@@ -91,6 +91,6 @@ export class TenantService {
           defaultConnectionString,
         },
       },
-      options,
+      requestOptions,
     );
 }

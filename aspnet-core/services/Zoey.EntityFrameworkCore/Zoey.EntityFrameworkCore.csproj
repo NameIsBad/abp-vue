@@ -1,25 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
         <RootNamespace>Zoey</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="$(AbpVersion)" />
-<!--        <PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" Version="5.1.3" />-->
-        <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
-        <ProjectReference Include="..\Zoey.Domain\Zoey.Domain.csproj" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" />
+<!--        <PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" />-->
+        <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" />
+        <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+        <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
+        <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
     </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zoey.Domain\Zoey.Domain.csproj" />
+	</ItemGroup>
 
 </Project>

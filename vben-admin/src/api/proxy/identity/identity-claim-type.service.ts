@@ -11,44 +11,44 @@ import type { ListResultDto, PagedResultDto } from '/@/utils/models/dtos';
 export class IdentityClaimTypeService {
   apiName = 'AbpIdentity';
 
-  create = (input: IdentityClaimTypeCreateDto, options?: RequestOptions) =>
+  create = (input: IdentityClaimTypeCreateDto, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityClaimTypeDto>(
       {
         method: 'POST',
         url: '/api/identity/claim-types',
         data: input,
       },
-      options,
+      requestOptions,
     );
 
-  deleteById = (id: string, options?: RequestOptions) =>
+  delete = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<void>(
       {
         method: 'DELETE',
         url: `/api/identity/claim-types/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  get = (id: string, options?: RequestOptions) =>
+  get = (id: string, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityClaimTypeDto>(
       {
         method: 'GET',
         url: `/api/identity/claim-types/${id}`,
       },
-      options,
+      requestOptions,
     );
 
-  getAllList = (options?: RequestOptions) =>
+  getAllList = (requestOptions?: RequestOptions) =>
     defHttp.request<ListResultDto<IdentityClaimTypeDto>>(
       {
         method: 'GET',
         url: '/api/identity/claim-types/actived-list',
       },
-      options,
+      requestOptions,
     );
 
-  getList = (input: IdentityClaimTypeGetByPagedDto, options?: RequestOptions) =>
+  getList = (input: IdentityClaimTypeGetByPagedDto, requestOptions?: RequestOptions) =>
     defHttp.request<PagedResultDto<IdentityClaimTypeDto>>(
       {
         method: 'GET',
@@ -60,16 +60,16 @@ export class IdentityClaimTypeService {
           maxResultCount: input.maxResultCount,
         },
       },
-      options,
+      requestOptions,
     );
 
-  update = (id: string, input: IdentityClaimTypeUpdateDto, options?: RequestOptions) =>
+  update = (id: string, input: IdentityClaimTypeUpdateDto, requestOptions?: RequestOptions) =>
     defHttp.request<IdentityClaimTypeDto>(
       {
         method: 'PUT',
         url: `/api/identity/claim-types/${id}`,
         data: input,
       },
-      options,
+      requestOptions,
     );
 }

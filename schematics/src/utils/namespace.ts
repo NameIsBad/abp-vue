@@ -1,4 +1,3 @@
-// import { source } from "@angular-devkit/schematics";
 import { createTypeParser, removeGenerics } from "./type";
 
 export function parseNamespace(solution: string, type: string) {
@@ -7,6 +6,7 @@ export function parseNamespace(solution: string, type: string) {
 
   if (solution === namespace) return "";
 
+  //zoey
   solution += "|Volo.Abp|Volo.Abp.AspNetCore.Mvc|Pages.Abp|EasyAbp.Abp";
 
   solution.split("|").forEach((item) => {

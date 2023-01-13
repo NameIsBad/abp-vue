@@ -1,19 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <RootNamespace>Zoey.Admin</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Volo.Abp.Account.HttpApi" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.Identity.AspNetCore" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.SettingManagement.HttpApi" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.Identity.HttpApi" Version="$(AbpVersion)" />
-        <PackageReference Include="Volo.Abp.TenantManagement.HttpApi" Version="$(AbpVersion)" />
+        <PackageReference Include="Volo.Abp.Account.HttpApi" />
+        <PackageReference Include="Volo.Abp.Identity.AspNetCore" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" />
+        <PackageReference Include="Volo.Abp.SettingManagement.HttpApi" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" />
+        <PackageReference Include="Volo.Abp.Identity.HttpApi" />
+        <PackageReference Include="Volo.Abp.TenantManagement.HttpApi" />
     </ItemGroup>
 
     <ItemGroup>
