@@ -34,6 +34,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoey.Admin.CodeGenerate", "host\Zoey.Admin.CodeGenerate\Zoey.Admin.CodeGenerate.csproj", "{B5C90B80-3D20-42A0-AFCB-51918C65B965}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{16E94541-6352-4988-9470-19E633EB06CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16E94541-6352-4988-9470-19E633EB06CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16E94541-6352-4988-9470-19E633EB06CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C90B80-3D20-42A0-AFCB-51918C65B965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C90B80-3D20-42A0-AFCB-51918C65B965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C90B80-3D20-42A0-AFCB-51918C65B965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C90B80-3D20-42A0-AFCB-51918C65B965}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{392330EB-06C9-4D3C-85FC-2B8A1F70315E} = {01E11EB9-9480-4A6A-8398-9F4392D0F7C5}
 		{08935D87-67BA-4C0F-B30F-E32E7D6014C8} = {01E11EB9-9480-4A6A-8398-9F4392D0F7C5}
 		{16E94541-6352-4988-9470-19E633EB06CE} = {01E11EB9-9480-4A6A-8398-9F4392D0F7C5}
+		{B5C90B80-3D20-42A0-AFCB-51918C65B965} = {0B24B3E6-43B0-46A0-9892-25C1C4E2F5A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9EF90281-820E-4395-9A0B-9091E4BE347F}

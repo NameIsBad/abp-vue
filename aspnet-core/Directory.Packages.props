@@ -3,6 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="EasyAbp.AbpHelper.Core.Vben" Version="0.17.0" />
     <PackageVersion Include="EPPlus.Core" Version="1.5.4" />
     <PackageVersion Include="Snowflake.Core" Version="2.0.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.1" />

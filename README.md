@@ -43,3 +43,11 @@ yarn serve
 生成的结构如下：
 
 ![](https://raw.githubusercontent.com/NameIsBad/abp-vue/main/docs/images/schematics.png)
+
+## CRUD代码生成
+
+1.在 `Zoey.Domain` 中添加实体类Todo.cs
+
+2.启动 `Zoey.Admin.CodeGenerate` 项目，输入实体类名： `Todo` 
+
+3.前端CURD代码生成在 `./vben-admin/src/views/manage/todo` 中
